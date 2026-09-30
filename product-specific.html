@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rainy Days | Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="description" content="View detailed information about this RainyDays jacket, including features, materials, and fit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/rainy-days-logo/favicon.ico">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+        <script type="module" src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a> 
+    
+    <div class="topbar">
+        <div class="topbar-inner">
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </nav>
+            <div class="country-select">
+                <select id="topbar-country-select" name="country" aria-label="Select your country">
+                    <option value="">Country</option>
+                    <option value="norway">Norway</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="england">England</option>
+                    <option value="germany">Germany</option>
+                </select>
+                <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <picture>
+                    <source media="(min-width: 900px)" srcset="images/rainy-days-logo/rainy-days-logo.png">
+                    <img src="images/rainy-days-logo/rainy-days-logo-no-text.png" alt="Rainy Days Logo">
+                </picture>
+            </a>
+
+            <nav class="main-nav" aria-label="Desktop navigation">    
+                <ul class="nav-list">
+                    
+                    <li class="dropdown-item">
+                        <a href="products-women.html" class="dropdown-trigger">
+                            Women <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="products-men.html" class="dropdown-trigger">
+                            Men <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="about.html" class="dropdown-trigger">
+                            About <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <a href="#search" class="icon-link" aria-label="Search products"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#wishlist" class="icon-link" aria-label="Open wishlist"><i class="fa-solid fa-heart"></i></a>
+                <a href="#share" class="icon-link" aria-label="Share this page"><i class="fa-solid fa-share-nodes"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="View shopping cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" aria-hidden="true"></span>
+                </a>
+
+                <label for="menu-toggle" class="menu-toggle-label icon-link">
+                    <i class="fa-solid fa-bars"></i>
+                    <span class="sr-only">Toggle navigation menu</span>
+                </label>
+            </div>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <nav class="main-nav-mobile" aria-label="Mobile navigation">
+            <ul class="nav-list-mobile">
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Women <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Men <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>About <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <div class="container product-specific-container">
+            <div class="product-top-section">
+                <div class="page-header">
+                    <div class="breadcrumbs">
+                        <a href="index.html">Home</a> / <a href="products-women.html">Jackets for Women</a> / <span>RainyPro Waterproof Jacket - Black</span>
+                    </div>
+                    
+                    <div class="product-layout">
+                        
+                        <div class="product-gallery">
+                            <div class="gallery-main">
+                                <img src="images/rainy-days-jacket2/rainy-days-jacket2-black.jpg" alt="RainyPro Waterproof Jacket - Black">
+                            </div>
+                            
+                            <div class="gallery-thumbnails">
+                                <button class="thumb active" aria-label="View front of jacket">
+                                    <img src="images/rainy-days-jacket2/rainy-days-jacket2-black-front.jpg" alt="">
+                                </button>
+                                <button class="thumb" aria-label="View left side of jacket">
+                                    <img src="images/rainy-days-jacket2/rainy-days-jacket2-black-left.jpg" alt="">
+                                </button>
+                                <button class="thumb" aria-label="View right side of jacket">
+                                    <img src="images/rainy-days-jacket2/rainy-days-jacket2-black-right.jpg" alt="">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h1>RainyPro Waterproof Jacket - Black</h1>
+                            <p class="product-intro">
+                                Stay confident through every downpour with the RainyPro Waterproof Jacket - Black. Built for performance and comfort, this lightweight shell combines advanced rain protection with breathable materials that let you move freely — whether you are hiking, training, or commuting.
+                            </p>
+                            
+                            <p class="price-large">999 NOK</p>
+
+                            <form action="#" class="product-form">   
+                                <fieldset class="form-row">
+                                    <legend>Color</legend> 
+                                    <div class="color-options">
+                                        <div class="color-radio black">
+                                            <input type="radio" id="color-black" name="color" value="black" checked>
+                                            <label for="color-black">
+                                                <span class="sr-only">Black</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="color-radio green">
+                                            <input type="radio" id="color-green" name="color" value="green">
+                                            <label for="color-green">
+                                                <span class="sr-only">Green</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="form-row">
+                                    <legend>Size</legend>
+                                    <div class="size-options">
+                                        <div class="size-box">
+                                            <input type="radio" id="size-xs" name="size" value="XS">
+                                            <label for="size-xs">XS</label>
+                                        </div>
+
+                                        <div class="size-box">
+                                            <input type="radio" id="size-s" name="size" value="S" checked>
+                                            <label for="size-s">S</label>
+                                        </div>
+
+                                        <div class="size-box">
+                                            <input type="radio" id="size-m" name="size" value="M">
+                                            <label for="size-m">M</label>
+                                        </div>
+
+                                        <div class="size-box">
+                                            <input type="radio" id="size-l" name="size" value="L">
+                                            <label for="size-l">L</label>
+                                        </div>
+
+                                        <div class="size-box">
+                                            <input type="radio" id="size-xl" name="size" value="XL">
+                                            <label for="size-xl">XL</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="form-row quantity-row">
+                                    <legend>Quantity</legend>
+                                    <div class="form-actions">
+                                        <div class="quantity-selector">
+                                            <button type="button" aria-label="Decrease quantity">-</button>
+                                            <input type="number" id="quantity" name="quantity" value="1" min="1" aria-label="Quantity">
+                                            <button type="button" aria-label="Increase quantity">+</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            <a href="cart.html" class="btn-narrow">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-bottom-section">
+                <section class="product-reviews">
+                    <div class="section-header">
+                        <h2>Reviews</h2>
+                    </div>
+                    <div class="reviews-grid">        
+                        <article class="review-card">
+                            <div class="review-header">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <h3>Good for hiking!</h3>
+                            </div>
+                            <p>I wore this jacket on a weekend trip to Trolltunga, and it handled constant drizzle and wind perfectly. It's lightweight but still feels durable.</p>
+                                    
+                            <div class="review-author">
+                                <span class="avatar">JF</span> <div class="author-details">
+                                    <span class="name">Janet Fidalgo</span>
+                                    <span class="date">15.10.2025</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="review-card">
+                            <div class="review-header">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <h3>Nice jacket, but a little sheer.</h3>
+                            </div>
+                            <p>Great waterproofing and comfortable fit, but the fabric is thinner than I expected. Works well for layering though.</p>
+                                    
+                            <div class="review-author">
+                                <span class="avatar">MD</span>
+                                 <div class="author-details">
+                                      <span class="name">Maria Dahl</span>
+                                      <span class="date">18.10.2025</span>
+                                 </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <aside class="product-details-accordion">
+                    <h2>More information</h2>
+                    <p>Designed in a timeless fit with minimalist Scandinavian detailing, 
+                        it keeps you dry, comfortable, and ready for anything the weather brings.</p>
+                    <details class="info-item">
+                        <summary>
+                            Features 
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+                        <div class="info-content">
+                            <ul>
+                                <li>Waterproof and windproof design</li>
+                                <li>Breathable 3-layer shell construction</li>
+                                <li>Adjustable hood and cuffs</li>
+                                <li>Reinforced seams for extra durability</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="info-item">
+                        <summary>
+                            Impact 
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+                        <div class="info-content">
+                            <ul>
+                                <li>Made with recycled polyester and eco-friendly water-repellent coating (PFC-free). </li>
+                                <li>Designed for performance without compromising environmental responsibility.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="info-item">
+                        <summary>
+                            Technology 
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+                        <div class="info-content">
+                            <ul>
+                                <li>Advanced membrane technology provides 20,000mm waterproofing and 15,000g/m² breathability for optimal comfort during active use.</li>
+                                <li>Durable water-repellent (DWR) finish ensures water beads off the surface, keeping you dry in heavy rain.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="info-item">
+                        <summary>
+                            Product Care 
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+                        <div class="info-content">
+                            <ul>
+                                <li>Machine wash cold with similar colors.</li>
+                                <li>Use mild detergent, no fabric softener.</li>
+                                <li>Tumble dry low or hang to dry.</li>
+                                <li>Reapply DWR coating as needed.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="info-item">
+                        <summary>
+                            Delivery & Returns 
+                            <i class="fa-solid fa-plus"></i>
+                        </summary>
+                        <div class="info-content">
+                            <ul>
+                                <li>Free standard shipping on orders over 1500 NOK.</li>
+                                <li>Estimated delivery: 3 to 5 business days.</li>
+                                <li>Free 30-day returns — product must be unused and with original tags.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            
+            <div class="footer-newsletter">
+                <div class="newsletter-header">
+                    <h2>Be the first to get the news!</h2>
+                    <p>Hear about new arrivals and sales.</p>
+                </div>
+                
+                <form action="#" class="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Email address</label>
+                    
+                    <div class="form-group">
+                        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-narrow">Subscribe</button>
+                    </div>
+                </form>
+                
+                <p class="legal-text">
+                    By joining you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                </p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="about.html">Company</a></li>
+                    <li><a href="about.html">Support</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                    <li><a href="about.html">Returns</a></li>
+                    <li><a href="about.html">Shipping and Delivery</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <a href="index.html" class="logo-footer">
+                <img src="images/rainy-days-logo/noroff-logo.png" alt="Noroff Logo">
+            </a>
+
+        </div>
+    </footer>
+
+        <div class="bottombar">
+            <div class="bottombar-inner">
+                <nav class="bottom-nav">
+                    <ul>
+                        <li><a href="#">All Rights Reserved</a></li>
+                        <li><a href="#">Terms of Sale</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Responsible Supply Chain Statement</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                    </ul>
+                </nav>
+                <div class="country-select">
+                    <select id="bottombar-country-select" name="country" aria-label="Select your country">
+                        <option value="">Country</option>
+                        <option value="norway">Norway</option>
+                        <option value="denmark">Denmark</option>
+                        <option value="sweden">Sweden</option>
+                        <option value="england">England</option>
+                        <option value="germany">Germany</option>
+                    </select>
+                    <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+                </div>
+            </div>
+        </div>
+  </body>
+</html>
+

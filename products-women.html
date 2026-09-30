@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rainy Days | Women</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Browse RainyDays womens jackets built for outdoor performance and everyday comfort.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/rainy-days-logo/favicon.ico">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+        <script type="module" src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a> 
+    
+    <div class="topbar">
+        <div class="topbar-inner">
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </nav>
+            <div class="country-select">
+                <select id="topbar-country-select" name="country" aria-label="Select your country">
+                    <option value="">Country</option>
+                    <option value="norway">Norway</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="england">England</option>
+                    <option value="germany">Germany</option>
+                </select>
+                <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <picture>
+                    <source media="(min-width: 900px)" srcset="images/rainy-days-logo/rainy-days-logo.png">
+                    <img src="images/rainy-days-logo/rainy-days-logo-no-text.png" alt="Rainy Days Logo">
+                </picture>
+            </a>
+
+            <nav class="main-nav" aria-label="Desktop navigation">    
+                <ul class="nav-list">
+                    
+                    <li class="dropdown-item">
+                        <a href="products-women.html" class="dropdown-trigger">
+                            Women <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="products-men.html" class="dropdown-trigger">
+                            Men <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="about.html" class="dropdown-trigger">
+                            About <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <a href="#search" class="icon-link" aria-label="Search products"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#wishlist" class="icon-link" aria-label="Open wishlist"><i class="fa-solid fa-heart"></i></a>
+                <a href="#share" class="icon-link" aria-label="Share this page"><i class="fa-solid fa-share-nodes"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="View shopping cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" aria-hidden="true"></span>
+                </a>
+
+                <label for="menu-toggle" class="menu-toggle-label icon-link">
+                    <i class="fa-solid fa-bars"></i>
+                    <span class="sr-only">Toggle navigation menu</span>
+                </label>
+            </div>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <nav class="main-nav-mobile" aria-label="Mobile navigation">
+            <ul class="nav-list-mobile">
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Women <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Men <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>About <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <div class="container">
+            
+            <div class="page-header">
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> / <span>Jackets for Women</span>
+                </div>
+                
+                <h2>Jackets for Women</h2>
+                <p class="product-count">6 items</p>
+
+                <div class="toolbar">
+                    <div class="dropdown-item filter-dropdown">
+                        <button class="tool-btn dropdown-trigger">
+                            FILTER <i class="fa-solid fa-bars-staggered"></i>
+                        </button>
+                        <ul class="dropdown-menu filter-menu">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Hiking</a></li>
+                            <li><a href="#">Activewear</a></li>
+                            <li><a href="#">Everyday</a></li>
+                            <li><a href="#">Skiing</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-item sort-dropdown">
+                        <button class="tool-btn dropdown-trigger">
+                            SORTING <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu sort-menu">
+                            <li><a href="#">Price: Low to High</a></li>
+                            <li><a href="#">Price: High to Low</a></li>
+                            <li><a href="#">Newest</a></li>
+                            <li><a href="#">Best Rated</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <section class="product-grid">
+                <h2 class="sr-only">Jackets for women</h2>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="RainyPro Waterproof Jacket - Black, 999 NOK, rated 5 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket2/rainy-days-jacket2-black.jpg" alt="RainyPro Waterproof Jacket Black">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>RainyPro Waterproof Jacket - Black</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="RainyPro Waterproof Jacket - Green, 999 NOK, rated 5 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket2/rainy-days-jacket2-green-inmotion.jpg" alt="RainyPro Waterproof Jacket Green">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>RainyPro Waterproof Jacket - Green</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="Trailfleece Jacket - Green, 999 NOK, rated 4 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket7/rainy-days-jacket7-women-inmotion.jpg" alt="Trailfleece Jacket Green">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>Trailfleece Jacket - Green</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="Altitude Pro Jacket - Black, 999 NOK, rated 5 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket4/rainy-days-jacket4-women-inmotion.jpg" alt="Altitude Pro Jacket Black">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>Altitude Pro Jacket - Black</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="TrailShell Jacket - Red, 999 NOK, rated 5 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket3/rainy-days-jacket3-women-v1.jpg" alt="TrailShell Jacket Red">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>TrailShell Jacket - Red</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <div class="card-media">
+                        <a href="product-specific.html" aria-label="Nomad Shell Jacket - Grey, 999 NOK, rated 5 out of 5 stars. View product">
+                            <img src="images/rainy-days-jacket5/rainy-days-jacket5-women.jpg" alt="Nomad Shell Jacket Grey">
+                        </a>
+                    </div>
+                    <div class="card-title">
+                        <h3>Nomad Shell Jacket - Grey</h3>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">999 NOK</span>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="count">(128)</span>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            
+            <div class="footer-newsletter">
+                <div class="newsletter-header">
+                    <h2>Be the first to get the news!</h2>
+                    <p>Hear about new arrivals and sales.</p>
+                </div>
+                
+                <form action="#" class="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Email address</label>
+                    
+                    <div class="form-group">
+                        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-narrow">Subscribe</button>
+                    </div>
+                </form>
+                
+                <p class="legal-text">
+                    By joining you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                </p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="about.html">Company</a></li>
+                    <li><a href="about.html">Support</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                    <li><a href="about.html">Returns</a></li>
+                    <li><a href="about.html">Shipping and Delivery</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <a href="index.html" class="logo-footer">
+                <img src="images/rainy-days-logo/noroff-logo.png" alt="Noroff Logo">
+            </a>
+
+        </div>
+    </footer>
+
+        <div class="bottombar">
+            <div class="bottombar-inner">
+                <nav class="bottom-nav">
+                    <ul>
+                        <li><a href="#">All Rights Reserved</a></li>
+                        <li><a href="#">Terms of Sale</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Responsible Supply Chain Statement</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                    </ul>
+                </nav>
+                <div class="country-select">
+                    <select id="bottombar-country-select" name="country" aria-label="Select your country">
+                        <option value="">Country</option>
+                        <option value="norway">Norway</option>
+                        <option value="denmark">Denmark</option>
+                        <option value="sweden">Sweden</option>
+                        <option value="england">England</option>
+                        <option value="germany">Germany</option>
+                    </select>
+                    <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+                </div>
+            </div>
+        </div>
+  </body>
+</html>
+

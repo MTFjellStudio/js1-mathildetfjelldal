@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rainy Days | Your Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Review the items in your RainyDays shopping cart before checkout.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/rainy-days-logo/favicon.ico">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/utilities.css">
+        <script type="module" src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a> 
+    
+    <div class="topbar">
+        <div class="topbar-inner">
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </nav>
+            <div class="country-select">
+                <select id="topbar-country-select" name="country" aria-label="Select your country">
+                    <option value="">Country</option>
+                    <option value="norway">Norway</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="england">England</option>
+                    <option value="germany">Germany</option>
+                </select>
+                <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <picture>
+                    <source media="(min-width: 900px)" srcset="images/rainy-days-logo/rainy-days-logo.png">
+                    <img src="images/rainy-days-logo/rainy-days-logo-no-text.png" alt="Rainy Days Logo">
+                </picture>
+            </a>
+
+            <nav class="main-nav" aria-label="Desktop navigation">    
+                <ul class="nav-list">
+                    
+                    <li class="dropdown-item">
+                        <a href="products-women.html" class="dropdown-trigger">
+                            Women <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="products-men.html" class="dropdown-trigger">
+                            Men <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-item">
+                        <a href="about.html" class="dropdown-trigger">
+                            About <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <a href="#search" class="icon-link" aria-label="Search products"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="#wishlist" class="icon-link" aria-label="Open wishlist"><i class="fa-solid fa-heart"></i></a>
+                <a href="#share" class="icon-link" aria-label="Share this page"><i class="fa-solid fa-share-nodes"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="View shopping cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" aria-hidden="true"></span>
+                </a>
+
+                <label for="menu-toggle" class="menu-toggle-label icon-link">
+                    <i class="fa-solid fa-bars"></i>
+                    <span class="sr-only">Toggle navigation menu</span>
+                </label>
+            </div>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <nav class="main-nav-mobile" aria-label="Mobile navigation">
+            <ul class="nav-list-mobile">
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Women <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-women.html">All Jackets</a></li>
+                            <li><a href="products-women.html">Hiking</a></li>
+                            <li><a href="products-women.html">Activewear</a></li>
+                            <li><a href="products-women.html">Everyday</a></li>
+                            <li><a href="products-women.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>Men <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="products-men.html">All Jackets</a></li>
+                            <li><a href="products-men.html">Hiking</a></li>
+                            <li><a href="products-men.html">Activewear</a></li>
+                            <li><a href="products-men.html">Everyday</a></li>
+                            <li><a href="products-men.html">Skiing</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li>
+                    <details class="mobile-dropdown">
+                        <summary>About <i class="fa-solid fa-chevron-down"></i></summary>
+                        <ul class="mobile-sub-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="about.html">Sustainability</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <div class="container cart-container">
+
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> / <span>Your Cart</span>
+            </div>
+
+            <div class="progress-container">
+                <ol class="progress-bar">
+                    <li class="step" id="step-cart">
+                        <div class="step-circle-active"></div>
+                        <span class="step-label">Cart</span>
+                    </li>
+                    
+                    <li class="step" id="step-checkout">
+                        <div class="step-circle"></div>
+                        <span class="step-label">Checkout</span>
+                    </li>
+                    
+                    <li class="step" id="step-success">
+                        <div class="step-circle"></div>
+                        <span class="step-label">Done</span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="cart-body">
+                <h2>Your Cart</h2>
+                <p>1 Item</p>
+
+                <div class="cart-layout">
+
+                <section class="cart-list" aria-label="Cart Items">
+                    
+                    <article class="cart-tile">
+                        <div class="cart-media">
+                            <a href="product-specific.html">
+                                <img src="images/rainy-days-jacket2/rainy-days-jacket2-black.jpg" alt="RainyPro Waterproof Jacket - Black">
+                            </a>
+                        </div>
+
+                        <div class="cart-info">
+                            
+                            <div class="cart-row top">
+                                <h3><a href="product-specific.html">RainyPro Waterproof Jacket</a></h3>
+                                <button type="button" class="btn-remove" aria-label="Remove item">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div class="cart-row middle">
+                                <p class="variant-text">Color: Black <span class="divider">|</span> Size: S</p>
+                            </div>
+                            <div class="cart-row bottom">
+                                <div class="form-actions">
+                                    <div class="quantity-selector">
+                                        <button type="button" aria-label="Decrease quantity">-</button>
+                                        <input type="number" id="quantity" name="quantity" value="1" min="1" aria-label="Quantity">
+                                        <button type="button" aria-label="Increase quantity">+</button>
+                                    </div>
+                                </div>
+                                
+                                <span class="price">999 NOK</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+
+                <aside class="cart-summary">
+                    <div class="summary-card">
+                        <h2>Order Summary</h2>
+                        
+                        <dl class="summary-rows">
+                            <div class="summary-row">
+                                <dt>Subtotal</dt>
+                                <dd>999 NOK</dd>
+                            </div>
+                            <div class="summary-row">
+                                <dt>Shipping</dt>
+                                <dd>99</dd>
+                            </div>
+                            <div class="summary-row total">
+                                <dt>Total</dt>
+                                <dd>1 098 NOK</dd>
+                            </div>
+                        </dl>
+
+                        <a href="checkout.html" class="btn-narrow">Go to Checkout</a>
+                        <a href="index.html" class="continue-shopping">Continue Shopping</a>
+                        
+                        <div class="safe-checkout-icons">
+                            <i class="fa-solid fa-lock"></i> <span>Secure Checkout</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            
+            <div class="footer-newsletter">
+                <div class="newsletter-header">
+                    <h2>Be the first to get the news!</h2>
+                    <p>Hear about new arrivals and sales.</p>
+                </div>
+                
+                <form action="#" class="newsletter-form">
+                    <label for="newsletter-email" class="sr-only">Email address</label>
+                    
+                    <div class="form-group">
+                        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-narrow">Subscribe</button>
+                    </div>
+                </form>
+                
+                <p class="legal-text">
+                    By joining you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                </p>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <ul>
+                    <li><a href="about.html">Company</a></li>
+                    <li><a href="about.html">Support</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                    <li><a href="about.html">Returns</a></li>
+                    <li><a href="about.html">Shipping and Delivery</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-icons">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <a href="index.html" class="logo-footer">
+                <img src="images/rainy-days-logo/noroff-logo.png" alt="Noroff Logo">
+            </a>
+
+        </div>
+    </footer>
+
+        <div class="bottombar">
+            <div class="bottombar-inner">
+                <nav class="bottom-nav">
+                    <ul>
+                        <li><a href="#">All Rights Reserved</a></li>
+                        <li><a href="#">Terms of Sale</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Responsible Supply Chain Statement</a></li>
+                        <li><a href="#">Cookie Preferences</a></li>
+                    </ul>
+                </nav>
+                <div class="country-select">
+                    <select id="bottombar-country-select" name="country" aria-label="Select your country">
+                        <option value="">Country</option>
+                        <option value="norway">Norway</option>
+                        <option value="denmark">Denmark</option>
+                        <option value="sweden">Sweden</option>
+                        <option value="england">England</option>
+                        <option value="germany">Germany</option>
+                    </select>
+                    <img src="images/stock-photos/pixabay-flag-norway.jpg" alt="Norway flag">
+                </div>
+            </div>
+        </div>
+  </body>
+</html>
+

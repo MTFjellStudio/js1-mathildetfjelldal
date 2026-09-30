@@ -1,0 +1,1309 @@
+/* =======================================
+   LAYOUT.CSS - HEADER & TOPBAR
+   ======================================= */
+
+/* UNIVERSAL CONTAINER */
+
+.container {
+    margin: 0 16px;
+}
+
+@media (min-width: 450px) {
+    .container {
+        margin: 0 20px;
+    }
+}
+
+@media (min-width: 900px) {
+    .container {
+        margin: 0 80px;
+    }
+}
+
+/* ========================================
+   TOPBAR (Desktop-Only: Login, Blog, Support, Country)
+   ======================================== */
+
+.topbar {
+    display: none;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) 0;
+}
+
+.topbar-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gutter-mobile);
+    padding: 0 var(--margin-page);
+    width: 100%;
+    margin-left: 0;
+}
+
+.top-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--gutter-mobile);
+    flex-wrap: wrap;
+}
+
+.top-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.top-nav a:hover {
+    opacity: 0.8;
+}
+
+.country-select {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.country-select img {
+    height: 20px;
+    width: auto;
+    --radius-none: 0px;
+}
+
+#country-select {
+    background: var(--color-white);
+    color: var(--color-text-dark);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: var(--space-xs) var(--space-sm);
+    --radius-none: 0px;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+}
+
+#country-select:hover {
+    border-color: var(--color-white);
+}
+
+#country-select option {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+@media (min-width: 900px) {
+    .topbar {
+        display: flex;
+    }
+
+    .topbar-inner {
+        gap: var(--gutter-mobile);
+        padding: 0 var(--margin-page);
+    }
+
+    .top-nav ul {
+        gap: var(--gutter-mobile);
+    }
+}
+
+
+/* ========================================
+   MAIN HEADER (Logo, Nav, Icons)
+   ======================================== */
+
+header {
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--margin-page);
+    gap: var(--gutter-mobile);
+}
+
+.logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* ========================================
+   HEADER ICONS
+   ======================================== */
+
+.header-icons {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    margin-left: -8px;
+}
+
+.icon-link {
+    font-size: var(--header-icon-size);
+    color: var(--color-white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin-left: -4px;
+    transition: transform var(--transition-fast);
+}
+
+.icon-link:hover {
+    color: var(--color-secondary-accent);
+    transform: scale(1.1);
+}
+
+.icon-link:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.icon-link:active {
+    transform: scale(0.95);
+    color: var(--color-secondary-accent);
+}
+
+.icon-link .cart-link {
+    position: relative;
+}
+
+.cart-badge {
+    position: relative;
+    top: -16px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-error);
+    border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+    .header-inner {
+        padding: var(--space-lg) var(--margin-page);
+        gap: var(--space-lg);
+    }
+
+    .logo img {
+    height: 90px;
+    width: auto;
+}
+    
+    .header-icons {
+        gap: 0;
+    }
+}
+
+
+/* ========================================
+   NAVIGATION (Main Navigation Menu)
+   ======================================== */
+
+/* Hidden checkbox that controls menu state */
+.menu-toggle-checkbox {
+    display: none;
+}
+
+/* Hamburger icon label - styled as icon */
+.menu-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--header-icon-size);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    transition: transform var(--transition-fast);
+}
+
+.menu-toggle-label:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile navigation dropdown - full width below header */
+.main-nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-md) var(--margin-page);
+    z-index: 50;
+    width: 100%;
+}
+
+/* Show mobile nav when hamburger is checked */
+.menu-toggle-checkbox:checked ~ .main-nav-mobile {
+    display: block;
+}
+
+/* Desktop nav - hidden on mobile, shown on desktop */
+.main-nav {
+    display: none;
+}
+
+/* Mobile navigation list */
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.nav-list a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    font-size: var(--font-size-md);
+    display: block;
+    transition: color var(--transition-fast);
+}
+
+.nav-list a:hover {
+    color: var(--color-secondary-accent);
+}
+
+.nav-list a:focus {
+    outline: 2px solid var(--color-secondary-accent);
+    outline-offset: 2px;
+}
+
+.nav-list a:active {
+    color: var(--color-tertiary);
+}
+
+/* --- DESKTOP NAVIGATION OVERRIDES (900px+) --- */
+@media (min-width: 900px) {
+    /* Hide hamburger on desktop */
+    .menu-toggle-label {
+        display: none;
+    }
+
+    /* Hide mobile nav dropdown on desktop */
+    .main-nav-mobile {
+        display: none !important;
+    }
+
+    /* Show desktop navigation as horizontal menu on desktop */
+    .main-nav {
+        display: flex !important;
+        position: static;
+        background: none;
+        border: none;
+        padding: 0;
+        gap: var(--gutter-mobile);
+        flex: 1;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        gap: var(--gutter-mobile); 
+    }
+
+    .nav-list a {
+        font-size: var(--font-size-md);
+    }
+}
+
+
+/* ========================================
+   MOBILE HAMBURGER menu
+   ======================================== */
+
+/* Remove default triangle marker from <details> */
+details > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-md); /* Matches nav link size */
+    font-weight: 500;
+    padding: 10px 0; /* Gives it a button feel */
+}
+
+/* Chrome/Safari specific marker removal */
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Rotate the arrow icon when opened */
+details[open] summary i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Style the sub-menu links */
+.mobile-sub-menu {
+    padding-left: 20px; /* Indent sub-items */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.mobile-sub-menu a {
+    font-size: 0.95rem; /* Slightly smaller than main links */
+    opacity: 0.9;
+}
+
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-banner {
+    /* MOBILE LAYOUT: Flex Column */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* THE TEXT (Mobile: orange AUTUMN COLLECTION on top.) Hide other text on mobile, make image clickable. */
+.hero-content {
+    /* Order -1 moves it visually to the top on Mobile */
+    order: -1; 
+    
+    background-color: var(--color-primary); /* Orange bar Unsure if this can be treated as orange button or if it should have a separate layout. */
+    color: var(--color-text-light);
+    padding: var(--space-md);
+    text-align: left;
+    z-index: 2; /* Ensure text sits on top as a"button". */
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.hero-content:hover {
+    background-color: var(--color-secondary); /* Darker orange on hover */
+}
+
+.hero-content h1 {
+    font-size: var(--font-size-lg);
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* Hide the subtitles and button on Mobile to match the fimga layout. */
+.hero-content p,
+.hero-content .btn {
+    display: none; 
+}
+
+/* --- THE IMAGE (Mobile: Tall Portrait) --- */
+.hero-media {
+    position: relative; /* For the price tag */
+    width: 100%;
+}
+
+
+.hero-media img { /* This is to make sure the image scales with the screen width. */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills space without stretching */
+    display: block;
+}
+
+/* Price Tag (Mobile Only? Consider price tag in bottom right corner on desktop, or even same placement on desktop as mobile.) */
+.hero-price-tag {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--color-secondary); /* Sage green. Check if darker color needed.--color-tertiary? */
+    color: var(--color-white);
+    padding: 16px 16px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.hero-text-link {
+    text-decoration: none; /* Removes the line */
+    color: inherit;
+    display: block;
+}
+
+/* --- DESKTOP HERO OVERRIDES (900px+) --- */
+@media (min-width: 900px) {
+    
+    .hero-banner {
+        /* DESKTOP LAYOUT: CSS Grid Stacking. This is to make the text and button stay on top of the image in desktop view.*/
+        display: grid;
+        /* create 1 single cell */
+        grid-template-columns: 1fr;
+        grid-template-rows: 600px; /* Fixed height for desktop. One single row that is exactly 600 pixels tall. */
+        overflow: hidden; /* Crops anything spilling out */
+    }
+
+    /* --- THE IMAGE (Fills the whole grid) --- */
+    .hero-media {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        aspect-ratio: auto; /* Reset aspect ratio */
+    }
+
+    .hero-price-tag {
+        display: none; /* Hide price on desktop */
+    }
+
+    /* --- THE TEXT (Overlays the grid) */
+    .hero-content {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        
+        margin-top: 0;
+        margin-bottom: 0;
+        /* Reset Orange Bar styles */
+        background-color: transparent;
+        order: 0; /* Reset order */
+        text-align: left;
+        
+        /* Positioning logic */
+        align-self: center; /* Vertical Center */
+        justify-self: start; /* Horizontal Left */
+        padding-left: 10%;
+        
+        /* Shadow for readability */
+        text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-transform: none;
+    }
+
+    .hero-content:hover {
+    background-color: transparent; /* No orange on hover */
+}
+
+    /* Show the elements we hid on mobile */
+    .hero-content p,
+    .hero-content .btn {
+        display: block;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-media::after { /*This is the dark overlay effect on the image. I only added on desktop though, for hover. */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 1;
+        transition: opacity var(--transition-fast);
+        pointer-events: none;
+    }
+
+    .hero-banner:has(.hero-text-link:hover) .hero-media::after {
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background-color: var(--color-tertiary);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    padding: var(--space-2lg) 0;
+    margin-top: 20%; /* Space above footer */
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything for mobile */
+    text-align: center;  /* Centers text on mid-axis, otherwise the text is centered but left aligned. */
+    gap: var(--space-xl); /* Big spacing between sections */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px var(--margin-page);
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Mobile: Vertical Stack */
+    gap: var(--space-md);   /* Space between links */
+}
+
+.footer-nav a {
+    color: var(--color-text-light);
+    text-decoration: underline;
+    text-underline-offset: 4px; /* Pushes underline down slightly for readability */
+    font-size: var(--font-size-base);
+}
+
+.footer-nav a:hover {
+    opacity: 0.8;
+    color: var(--color-secondary-accent);
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md); /* Space between icons */
+    font-size: var(--font-size-md);
+}
+
+.footer-icons a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.footer-icons a:hover {
+    color: var(--color-secondary-accent);
+    transform: scale(1.1);
+}
+
+.logo-footer img {
+    height: 64px;
+    width: auto;
+    filter: brightness(invert); /* Supposed to invert logo color, doesnt seem to be working. */
+}
+
+
+/* ========================================
+   BOTTOMBAR
+   ======================================== */
+
+.bottombar {
+    display: none;  /* Hidden on mobile */
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    padding: var(--space-xs) 0;
+}
+
+/* Bottombar inner content alignment */
+.bottombar-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gutter-mobile);
+    padding: 0 var(--margin-page);
+    width: 100%;  /* Ensure full width */
+    margin-left: 0;  /* Prevent default margin issues */
+}
+
+/* Bottom navigation links */
+.bottom-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--gutter-mobile);
+    flex-wrap: wrap;
+}
+
+.bottom-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.bottom-nav a:hover {
+    opacity: 0.8;
+}
+
+/* --- DESKTOP BOTTOMBAR OVERRIDES (900px+) --- */
+@media (min-width: 900px) {
+    /* Show bottom-bar on desktop */
+    .bottombar {
+        display: flex;
+    }
+
+    .bottombar-inner {
+        gap: var(--gutter-mobile);
+        padding: 0 var(--margin-page);
+    }
+
+    .bottom-nav ul {
+        gap: var(--gutter-mobile);
+    }
+}
+
+/* ========================================
+   HOME-GRID LAYOUT - Parent grid of Category grid, Featured Products & Promo grid.
+   ======================================== */
+
+@media (max-width: 449px) {
+    .home-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Space between left and right columns */
+    }
+
+    .left-column,
+    .right-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .right-column .promo-grid {
+        order: 1;
+    }
+
+    .right-column .featured-two {
+        order: 2;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 899px) {
+    .home-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+        grid-template-areas: 
+            "left   right";
+        gap: var(--space-md);
+    }
+
+    .left-column {
+        grid-area: left;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .right-column {
+        grid-area: right;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 20px;
+    }
+}
+
+
+/* ========================================
+   DESKTOP LAYOUT (900px+)
+   ======================================== */
+@media (min-width: 900px) {
+    
+    /* 1. Hide the Featured Products */
+    .product-card.featured-one,
+    .product-card.featured-two {
+        display: none;
+    }
+
+    /* 2. Update the Grid Map */
+    .home-grid {
+        display: grid;
+        gap: var(--space-md);
+    }
+    
+    /* 3. Update the Category Grid */
+    .category-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; 
+        gap: var(--space-md);
+    }
+
+    .shop-promos {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: var(--space-md);
+    }
+}
+
+/* ========================================
+   CATEGORY GRID LAYOUT
+   ======================================== */
+
+.category-grid {
+    display: grid;
+    /* TINY SCREENS (Safety Mode) */
+    /* If screen is super skinny (<450px), force 1 column so text fits */
+    grid-template-columns: 1fr; 
+    gap: var(--space-md);
+    margin-bottom: 0;
+    align-items: center; /* Vertically center items */
+}
+
+/* Make the Slogan span across 2 columns on mobile or make it disappear entirely? */
+.category-slogan {
+    display: none; /* This hides slogan on mobile to match Figma */
+}
+
+/*DESKTOP OVERRIDES */
+
+@media (min-width: 900px) {
+    .category-slogan {
+        display: block; /* Show slogan on desktop */
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
+} 
+
+/* STANDARD MOBILE (450px+) */
+@media (min-width: 450px) {
+    .category-grid {
+    display: grid;
+    /* 1 Columns for 450px or wider up to 899px */
+    grid-template-columns: 1fr; 
+    gap: var(--space-md);
+    margin-bottom: 0;
+    align-items: center; /* Vertically center items */
+    }
+}
+
+@media (min-width: 900px) {
+    
+    .category-grid {
+        /* 3 Columns */
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: var(--space-md);
+    }
+
+    /* Reset Slogan to take just 1 column */
+    .category-slogan {
+        grid-column: auto; 
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* ========================================
+   PROMO GRID LAYOUT
+   ======================================== */
+
+.promo-grid {
+    display: grid;
+    /* TINY SCREENS (Safety Mode) */
+    /* If screen is super skinny (<450px), force 1 column so text fits */
+    grid-template-columns: 1fr; 
+    gap: var(--space-md); 
+    margin-bottom: 0;
+}
+
+/* STANDARD MOBILE (450px+) - Force side-by-side for promos */
+@media (min-width: 450px) {
+    .promo-grid {
+        grid-template-columns: 1fr; /* 1 column to stack vertically */
+    }
+}
+
+
+/* DESKTOP LUXURY (900px+) */
+@media (min-width: 900px) {
+    .promo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 3 columns */
+        gap: var(--space-md);
+    }
+}   
+
+
+
+/* ========================================
+   PRODUCT-GRID LAYOUT (Products-women, homepage etc.)
+   ======================================== */
+
+.product-grid {
+    display: grid;
+    /* TINY SCREENS (Safety Mode) */
+    /* If screen is super skinny (<450px), force 1 column so text fits */
+    grid-template-columns: 1fr; 
+    gap: var(--space-md); 
+    margin-bottom: var(--space-3xl);
+    /* Removed margin: 16px; */
+}
+
+/* STANDARD MOBILE (450px+) */
+@media (min-width: 450px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* The standard 2-col view */
+        /* Removed margin: 20px; */
+    }
+}
+
+/* DESKTOP LUXURY (900px+) */
+@media (min-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* Switch to 3 columns */
+        gap: var(--space-lg); /* Bigger gaps */
+        /* Removed margin: 80px; */
+    }
+}
+
+
+/* ========================================
+   PRODUCT-SPECIFIC PAGE LAYOUT
+   ======================================== */
+
+.product-specific-container {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-3xl);
+}
+
+.breadcrumbs {
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+}
+
+.breadcrumbs a:hover {
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+}
+
+/* MOBILE DEFAULT: Stacked Column */
+.product-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+/* Gallery - Mobile Scroll */
+.gallery-main {
+    display: flex;
+    overflow-x: auto; /* Allow side scrolling */
+    scroll-snap-type: x mandatory; /* Snap effect */
+    gap: 10px;
+}
+
+.gallery-main img {
+    width: 100%;
+    scroll-snap-align: center;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+}
+
+/* Mobile Thumbnails - Show below main image in horizontal row */
+.gallery-thumbnails {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+    padding-top: var(--space-md);
+}
+
+.thumb {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.thumb img {
+    width: 60px;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.thumb:hover img,
+.thumb.active img {
+    opacity: 1;
+}
+
+/* Product Bottom Section - Reviews and More Information */
+.product-bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+}
+
+/* DESKTOP LAYOUT (900px+) */
+@media (min-width: 900px) {
+    
+    .product-layout {
+        display: grid;
+        /* 1.2fr (Gallery) | 1fr (Info) */
+        grid-template-columns: 1.2fr 1fr; 
+        gap: var(--space-2xl);
+        align-items: start;
+    }
+
+    /* Desktop Gallery Grid */
+    .product-gallery {
+        display: grid;
+        grid-template-columns: 80px 1fr; /* Thumbs | Main */
+        gap: var(--space-md);
+        position: sticky;
+        top: 20px;
+    }
+    
+    .gallery-thumbnails {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        order: -1; /* Move to left */
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+
+    .thumb img {
+        width: 100%;
+    }
+
+    .gallery-main { overflow: visible; }
+
+    .product-bottom-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+        align-items: start;
+    }
+
+    .product-reviews {
+        order: -1; /* Reviews on left */
+    }
+
+    .product-details-accordion {
+        order: 1; /* More Information on right */
+    }
+}
+
+
+/* ========================================
+   CART PAGE LAYOUT
+   ======================================== */
+   
+.cart-body {
+    border-radius: 0px;
+    
+}
+
+.cart-layout {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: var(--space-xs);
+    color: var(--color-text-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.continue-shopping:hover,
+.continue-shopping:focus {
+    color: var(--color-primary);
+}
+
+.safe-checkout-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+
+@media (min-width: 900px) {
+    .cart-body {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .cart-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Cart Details 2/3, Summary 1/3 */
+    }
+
+    .cart-list {
+    display: flex;
+    flex-direction: column;
+    }
+}
+
+
+/* ========================================
+   CHECKOUT PAGE LAYOUT - With an accordion for Info, Shipping and Payment.
+   ======================================== */
+
+.checkout-container {
+    padding-bottom: var(--space-3xl);
+}
+
+.checkout-layout {
+    display: flex;
+    flex-direction: column; /* Mobile: Stacked */
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
+}
+
+.checkout-summary {
+    order: 1; /*I want the summary above the forms on mobile*/
+}
+
+.checkout-forms {
+    order: 2;
+}
+
+.checkout-layout a {
+    display: block;
+    text-align: center;
+}
+
+.checkout-step {
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-md);
+}
+
+.checkout-step summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    color: var(--color-text-dark);
+}
+
+.checkout-step summary::-webkit-details-marker { display: none; }
+
+.checkout-step h3 {
+    margin: 0;
+    font-size: var(--font-size-h3);
+}
+
+.checkout-step[open] summary {
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-md);
+}
+
+.checkout-step .radio-option {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.step-content {
+    padding-bottom: var(--space-lg);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-group-row {
+    display: flex;
+    gap: var(--space-md);
+}
+.form-group-row .form-row {
+    flex: 1; /* Split width 50/50 */
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+/* --- RIGHT COLUMN: SUMMARY --- */
+.summary-card {
+    background-color: var(--color-bkg-boxes);
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+}
+
+.summary-rows {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: 0;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.summary-row.total {
+    font-weight: var(--font-weight-bold);
+}
+
+.summary-card h2 {
+    display: none;
+}
+
+.mini-cart-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.mini-cart-item img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* ========================================
+   DESKTOP LAYOUT (900px+)
+   ======================================== */
+@media (min-width: 900px) {
+    .checkout-summary,
+    .checkout-forms {
+        order: initial;
+    }
+
+    .summary-card h2 {
+        display: block;
+    }
+
+    .checkout-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Forms take 2/3, Summary takes 1/3 */
+        gap: var(--space-3xl);
+        align-items: start; /* Prevents summary from stretching */
+    }
+
+    /* Makes the Order Summary Sticky */
+    .checkout-summary {
+        position: sticky;
+        top: 20px; /* Stays 20px from top of screen while scrolling */
+    }
+}
+
+   /* ========================================
+   SUCCESS PAGE LAYOUT
+   ======================================== */
+
+.success-container {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+    /* Centralize everything in this container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.success-message {
+    max-width: 600px;
+    margin-bottom: var(--space-3xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* The green checkbock icon */
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-success); /* Green background */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+}
+
+/* The Checkmark Icon */
+.success-icon i {
+    color: var(--color-white);
+    font-size: 2.5rem;
+}
+
+/* Typography Tweaks */
+.success-message h1 {
+    font-size: var(--font-size-h1); /* Uses mobile/desktop responsive token [2, 3] */
+    margin: 0;
+}
+
+.success-message p {
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-lg);
+}
+
+/* Divider line */
+.divider {
+    width: 100%;
+    max-width: 200px;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin-bottom: var(--space-3xl);
+}
+
+/* Category Grid on Success Page - Centered with no slogan */
+.success-container .category-grid {
+    width: 100%;
+    justify-content: center;
+}
+
+ /* ========================================
+   ABOUT PAGE LAYOUT
+   ======================================== */
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-3xl) var(--margin-page);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    gap: var(--space-md);
+}
+
+.about-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 0px;
+    height: auto;
+}
