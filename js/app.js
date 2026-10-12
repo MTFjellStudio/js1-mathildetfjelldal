@@ -8,6 +8,12 @@ async function displayProducts() {
   const products = await fetchProducts();
   // 3. logs the products so I can inspect the API data
   console.log(products);
+
+  // THE .featured-one CARD I SELECTED HERE
+  const featuredOneCard = document.querySelector(".featured-one");
+
+  // log and inspect it
+  console.log(featuredOneCard);
 }
 
 // Run the function.
