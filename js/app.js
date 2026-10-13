@@ -30,6 +30,26 @@ async function displayProducts() {
   } else {
     console.log("No featured product card on this page.");
   } //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
+
+  const featuredTwoCard = document.querySelector(".featured-two");
+  console.log(featuredTwoCard);
+
+  if (featuredTwoCard) {
+    const productTitle = featuredTwoCard.querySelector(".card-title h3");
+    const productImage = featuredTwoCard.querySelector(".card-media img");
+    const productPrice = featuredTwoCard.querySelector(".price");
+    const productLink = featuredTwoCard.querySelector(".card-media a");
+    console.log({ productTitle, productImage, productPrice, productLink });
+
+    const product = products[4];
+    productTitle.textContent = product.title;
+    productPrice.textContent = product.price;
+    productImage.src = product.image.url;
+    productImage.alt = product.image.alt;
+    productLink.href = `product/index.html?id=${product.id}`;
+  } else {
+    console.log("No featured product card on this page.");
+  }
 }
 
 // Run the function.
