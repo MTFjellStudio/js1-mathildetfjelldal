@@ -11,9 +11,25 @@ async function displayProducts() {
 
   // THE .featured-one CARD I SELECTED HERE
   const featuredOneCard = document.querySelector(".featured-one");
-
   // log and inspect it
   console.log(featuredOneCard);
+
+  if (featuredOneCard) {
+    const productTitle = featuredOneCard.querySelector(".card-title h3");
+    const productImage = featuredOneCard.querySelector(".card-media img");
+    const productPrice = featuredOneCard.querySelector(".price");
+    const productLink = featuredOneCard.querySelector(".card-media a");
+    console.log({ productTitle, productImage, productPrice, productLink }); //Better way to inspect all elements at once than the 4 separate console.logs I originally had.
+
+    const product = products[1];
+    productTitle.textContent = product.title;
+    productPrice.textContent = product.price;
+    productImage.src = product.image.url;
+    productImage.alt = product.image.alt;
+    productLink.href = `product/index.html?id=${product.id}`;
+  } else {
+    console.log("No featured product card on this page.");
+  } //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
 }
 
 // Run the function.

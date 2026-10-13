@@ -130,7 +130,8 @@ header {
 }
 
 .logo {
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
     display: flex;
     align-items: center;
 }
@@ -138,6 +139,8 @@ header {
 .logo img {
     height: 60px;
     width: auto;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 /* ========================================
