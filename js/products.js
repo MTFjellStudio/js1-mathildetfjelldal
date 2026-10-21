@@ -8,17 +8,44 @@ async function displayWomenProducts() {
   console.log(womenProductGrid);
 
   if (womenProductGrid) {
-    //FILTER the products to only include female products
-    function isFemaleProduct(product) {
-      return product.gender === "Female";
-    }
-    const womenProducts = products.filter(isFemaleProduct); //Makes sure womenProducts filters only the female products through the gender property
-    console.log(womenProducts);
+        //FILTER the products to only include female products
+        function isFemaleProduct(product) {
+        return product.gender === "Female";
+        }
+        const womenProducts = products.filter(isFemaleProduct); //Makes sure womenProducts filters only the female products through the gender property
+        console.log(womenProducts);
 
-    for (let i = 0; i < womenProducts.length; i++) {
-      const product = womenProducts[i];
-      // womenProducts.length = 6
-      console.log(product);
+        for (const product of womenProducts) {
+            
+            console.log(product);
+
+            const card = document.createElement("div");
+
+            card.classList.add("product-card");
+            womenProductGrid.appendChild(card);
+
+            const title = document.createElement("h3");
+            title.textContent = product.title;
+            card.appendChild(title);
+
+            const image = document.createElement("img");
+            image.src = product.image.url;
+            image.alt = product.image.alt;
+            card.appendChild(image);
+
+            const price = document.createElement("p");
+            price.textContent = `$${product.price}`;
+            card.appendChild(price);
+
+            const link = document.createElement("a");
+            link.href = `product/index.html?id=${product.id}`;
+            link.textContent = "View Product";
+            card.appendChild(link);
+
+            
+        }
+
+
     }
 
     // 3. CREATE one product card
