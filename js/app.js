@@ -10,15 +10,15 @@ async function displayProducts() {
   console.log(products);
 
   // THE .featured-one CARD I SELECTED HERE
-  const featuredOneCard = document.querySelector(".featured-one");
+  const featuredOneProduct = document.querySelector(".featured-one");
   // log and inspect it
-  console.log(featuredOneCard);
+  console.log(featuredOneProduct);
 
-  if (featuredOneCard) {
-    const productTitle = featuredOneCard.querySelector(".card-title h3");
-    const productImage = featuredOneCard.querySelector(".card-media img");
-    const productPrice = featuredOneCard.querySelector(".price");
-    const productLink = featuredOneCard.querySelector(".card-media a");
+  if (featuredOneProduct) {
+    const productTitle = featuredOneProduct.querySelector(".card-title h3");
+    const productImage = featuredOneProduct.querySelector(".card-media img");
+    const productPrice = featuredOneProduct.querySelector(".price");
+    const productLink = featuredOneProduct.querySelector(".card-media a");
     console.log({ productTitle, productImage, productPrice, productLink }); //Better way to inspect all elements at once than the 4 separate console.logs I originally had.
 
     const product = products[1];
@@ -31,14 +31,14 @@ async function displayProducts() {
     console.log("No featured product card on this page.");
   } //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
 
-  const featuredTwoCard = document.querySelector(".featured-two");
-  console.log(featuredTwoCard);
+  const featuredTwoProduct = document.querySelector(".featured-two");
+  console.log(featuredTwoProduct);
 
-  if (featuredTwoCard) {
-    const productTitle = featuredTwoCard.querySelector(".card-title h3");
-    const productImage = featuredTwoCard.querySelector(".card-media img");
-    const productPrice = featuredTwoCard.querySelector(".price");
-    const productLink = featuredTwoCard.querySelector(".card-media a");
+  if (featuredTwoProduct) {
+    const productTitle = featuredTwoProduct.querySelector(".card-title h3");
+    const productImage = featuredTwoProduct.querySelector(".card-media img");
+    const productPrice = featuredTwoProduct.querySelector(".price");
+    const productLink = featuredTwoProduct.querySelector(".card-media a");
     console.log({ productTitle, productImage, productPrice, productLink });
 
     const product = products[4];
