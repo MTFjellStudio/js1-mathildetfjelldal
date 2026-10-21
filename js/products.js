@@ -15,38 +15,27 @@ async function displayWomenProducts() {
     const womenProducts = products.filter(isFemaleProduct); //Makes sure womenProducts filters only the female products through the gender property
     console.log(womenProducts);
 
-    const productTitle = womenProductGrid.querySelector(".card-title h3");
-    const productImage = womenProductGrid.querySelector(".card-media img");
-    const productPrice = womenProductGrid.querySelector(".price");
-    const productLink = womenProductGrid.querySelector(".card-media a");
-    console.log({ productTitle, productImage, productPrice, productLink });
-
-    const product = womenProducts[0]; // Get the first female product
-    if (product) {
-      productTitle.textContent = product.title;
-      productPrice.textContent = product.price;
-      productImage.src = product.image.url;
-      productImage.alt = product.image.alt;
-      productLink.href = `../product/index.html?id=${product.id}`;
+    for (let i = 0; i < womenProducts.length; i++) {
+      const product = womenProducts[i];
+      // womenProducts.length = 6
+      console.log(product);
     }
 
-    //FOR EACH product inside womenProducts:
+    // 3. CREATE one product card
 
-    //CREATE a product card
+    // 4. CREATE its title
 
-    //CREATE its image
-    //use product.image.url
+    // 5. CREATE its image
 
-    //CREATE its title
-    //use product.title
+    // 6. CREATE its price
 
-    //CREATE its price
-    //use product.price
+    // 7. CREATE its link
 
-    //CREATE its link
-    //use product.id
+    // 8. PUT the current product's API data into those elements
 
-    //ADD completed card to womenProductGrid
+    // 9. PUT those elements inside the card
+
+    // 10. PUT the card inside womenProductGrid
   }
 }
 
