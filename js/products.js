@@ -6,8 +6,8 @@ async function displayCategoryProducts() {
   const womenProductGrid = document.querySelector(".women-product-grid");
   const menProductGrid = document.querySelector(".men-product-grid");
 
-  let productGrid;
-  let gender;
+  let productGrid = null; //Easier to make it explicit that it starts at null so that I remember it's reason for being there.
+  let gender = null;
 
   if (womenProductGrid) {
     productGrid = womenProductGrid;

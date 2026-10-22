@@ -9,6 +9,15 @@ async function displayProducts() {
   // 3. logs the products so I can inspect the API data
   console.log(products);
 
+  const heroPrice = document.querySelector(".hero-price-tag");
+  const heroLink = document.querySelector(".hero-media a");
+  console.log(heroPrice, heroLink);
+  if (heroPrice && heroLink) {
+    const product = products[3]; // I am keeping the fourth product from the API for the hero section, to keep the promotional imagery intact.
+    heroPrice.textContent = `${product.price} NOK`;
+    heroLink.href = `product/index.html?id=${product.id}`;
+  }
+
   // THE .featured-one CARD I SELECTED HERE
   const featuredOneProduct = document.querySelector(".featured-one");
   // log and inspect it
