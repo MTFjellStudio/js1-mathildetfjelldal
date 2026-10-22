@@ -453,6 +453,7 @@
 
 .card-title {
   margin: 8px;
+  flex-grow: 1;
 }
 
 .card-title h3 {
