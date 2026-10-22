@@ -19,19 +19,30 @@ async function displayProduct() {
     const productPrice = productContainer.querySelector(".price-large");
     console.log({ productTitle, productImage, productPrice });
 
-    const product = products.find((p) => String(p.id) === productId);
+    function isCorrectProduct(product) {
+      //Changed this for readability. I did not feel I understood the other code well enough to implement it. const product = products.find((p) => String(p.id) === productId); originally.
+      return product.id === productId;
+    }
+    const product = products.find(isCorrectProduct);
+
     productTitle.textContent = product.title;
     productPrice.textContent = product.price;
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
 
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
+    // Will look for a solution that dynamically updates the breadcrumb based on the product's gender instead of specifically setting a rule for only one of the genders but not the other.
     const categoryBreadcrumb = productContainer.querySelector(
       '.breadcrumbs a[href="../category/products-women.html"]',
     );
-    if (product.gender === "Male" && categoryBreadcrumb) {
-      categoryBreadcrumb.href = "../category/products-men.html";
-      categoryBreadcrumb.textContent = "Jackets for Men";
+    if (categoryBreadcrumb) {
+      if (product.gender === "Male") {
+        categoryBreadcrumb.href = "../category/products-men.html";
+        categoryBreadcrumb.textContent = "Jackets for Men";
+      } else {
+        categoryBreadcrumb.href = "../category/products-women.html";
+        categoryBreadcrumb.textContent = "Jackets for Women";
+      }
     }
   }
 }
