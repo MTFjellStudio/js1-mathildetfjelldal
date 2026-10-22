@@ -12,18 +12,27 @@ async function displayProduct() {
   );
 
   if (productContainer) {
-    const productTitle = productContainer.querySelector(".card-title h3");
-    const productImage = productContainer.querySelector(".card-media img");
-    const productPrice = productContainer.querySelector(".price");
-    const productLink = productContainer.querySelector(".card-media a");
-    console.log({ productTitle, productImage, productPrice, productLink }); //Better way to inspect all elements at once than the 4 separate console.logs I originally had.
+    const productTitle = productContainer.querySelector(".product-info h1");
+    const productImage = productContainer.querySelector(
+      ".product-gallery .gallery-main img",
+    );
+    const productPrice = productContainer.querySelector(".price-large");
+    console.log({ productTitle, productImage, productPrice });
 
-    const product = products.find((p) => p.id === productId);
+    const product = products.find((p) => String(p.id) === productId);
     productTitle.textContent = product.title;
     productPrice.textContent = product.price;
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
-    productLink.href = `product/index.html?id=${product.id}`;
+
+    //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
+    const categoryBreadcrumb = productContainer.querySelector(
+      '.breadcrumbs a[href="../category/products-women.html"]',
+    );
+    if (product.gender === "Male" && categoryBreadcrumb) {
+      categoryBreadcrumb.href = "../category/products-men.html";
+      categoryBreadcrumb.textContent = "Jackets for Men";
+    }
   }
 }
 

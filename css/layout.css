@@ -198,7 +198,7 @@ header {
 
 @media (min-width: 900px) {
     .header-inner {
-        padding: var(--space-lg) var(--margin-page);
+        padding: var(--space-lg) 80px;
         gap: var(--space-lg);
     }
 
@@ -318,6 +318,7 @@ header {
         padding: 0;
         gap: var(--gutter-mobile);
         flex: 1;
+        margin-left: var(--space-lg);
     }
 
     .nav-list {
