@@ -381,11 +381,14 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-tertiary);
+  border-radius: 8px;
+  overflow: hidden;
 
   /* To ensure the card itself acts as a hover trigger */
   cursor: pointer;
@@ -414,7 +417,7 @@
 }
 
 .product-card:hover .card-media,
-.product-card:hover .card-footer {
+.product-card:hover .card-title {
   background-color: var(--color-primary);
   transition: background-color 0.2s ease;
 }
@@ -443,6 +446,7 @@
   object-fit: contain;
   aspect-ratio: 3 / 4;
   object-position: center;
+  border-radius: var(--radius-md);
 }
 
 .card-info {
@@ -452,7 +456,11 @@
 }
 
 .card-title {
-  margin: 8px;
+  margin: 0;
+  padding: 8px;
+  color: var(--color-text-light);
+  background-color: var(--color-tertiary);
+  text-align: left;
   flex-grow: 1;
 }
 
@@ -488,11 +496,15 @@
 
 .card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px;
-  color: var(--color-text-light);
-  background-color: var(--color-tertiary);
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+}
+
+.card-footer .price {
+  margin-left: 4px;
 }
 
 @media (min-width: 900px) {

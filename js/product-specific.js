@@ -26,7 +26,7 @@ async function displayProduct() {
     const product = products.find(isCorrectProduct);
 
     productTitle.textContent = product.title;
-    productPrice.textContent = product.price;
+    productPrice.textContent = `${product.price} NOK`;
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
 
