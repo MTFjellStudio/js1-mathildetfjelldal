@@ -16,12 +16,10 @@ async function displayProduct() {
     const productImage = productContainer.querySelector(
       ".product-gallery .gallery-main img",
     );
-    const productPrice = productContainer.querySelector(".price-large");
     const productDescription = productContainer.querySelector(".product-intro");
     console.log({
       productTitle,
       productImage,
-      productPrice,
       productDescription,
     });
 
@@ -32,10 +30,27 @@ async function displayProduct() {
     const product = products.find(isCorrectProduct);
 
     productTitle.textContent = product.title;
-    productPrice.textContent = `${product.price} NOK`;
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
     productDescription.textContent = product.description;
+
+    //The price onSale and full price
+    const isOnSale = product.onSale;
+    const originalPrice = productContainer.querySelector(".original-price");
+    const currentPrice = productContainer.querySelector(".current-price");
+
+    if (isOnSale) {
+      originalPrice.textContent = `${product.price} NOK`;
+      currentPrice.textContent = `${product.discountedPrice} NOK`;
+    } else {
+      currentPrice.textContent = `${product.price} NOK`;
+    }
+    console.log({
+      product,
+      isOnSale,
+      originalPrice,
+      currentPrice,
+    });
 
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
     // Will look for a solution that dynamically updates the breadcrumb based on the product's gender instead of specifically setting a rule for only one of the genders but not the other.

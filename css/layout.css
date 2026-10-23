@@ -943,7 +943,14 @@ footer {
   }
 
   .gallery-main {
-    overflow: visible;
+    height: 100%;
+    aspect-ratio: auto;
+    background-color: var(--color-white);
+  }
+
+  .gallery-main img {
+    height: 100%;
+    object-fit: contain;
   }
 
   .product-bottom-section {
