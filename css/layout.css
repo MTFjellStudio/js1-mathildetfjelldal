@@ -903,6 +903,11 @@ footer {
   object-fit: contain;
 }
 
+.price-large .sale-price {
+  color: var(--color-error);
+  font-weight: bold;
+}
+
 /* Product Bottom Section - Reviews and More Information */
 .product-bottom-section {
   display: flex;

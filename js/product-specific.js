@@ -38,11 +38,13 @@ async function displayProduct() {
     const isOnSale = product.onSale;
     const originalPrice = productContainer.querySelector(".original-price");
     const currentPrice = productContainer.querySelector(".current-price");
+    currentPrice.classList.toggle("sale-price", isOnSale);
 
     if (isOnSale) {
       originalPrice.textContent = `${product.price} NOK`;
       currentPrice.textContent = `${product.discountedPrice} NOK`;
     } else {
+      originalPrice.textContent = ""; // Clears the original price if not on sale
       currentPrice.textContent = `${product.price} NOK`;
     }
     console.log({
