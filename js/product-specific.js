@@ -17,7 +17,13 @@ async function displayProduct() {
       ".product-gallery .gallery-main img",
     );
     const productPrice = productContainer.querySelector(".price-large");
-    console.log({ productTitle, productImage, productPrice });
+    const productDescription = productContainer.querySelector(".product-intro");
+    console.log({
+      productTitle,
+      productImage,
+      productPrice,
+      productDescription,
+    });
 
     function isCorrectProduct(product) {
       //Changed this for readability. I did not feel I understood the other code well enough to implement it. const product = products.find((p) => String(p.id) === productId); originally.
@@ -29,6 +35,7 @@ async function displayProduct() {
     productPrice.textContent = `${product.price} NOK`;
     productImage.src = product.image.url;
     productImage.alt = product.image.alt;
+    productDescription.textContent = product.description;
 
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
     // Will look for a solution that dynamically updates the breadcrumb based on the product's gender instead of specifically setting a rule for only one of the genders but not the other.

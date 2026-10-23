@@ -903,38 +903,6 @@ footer {
   object-fit: contain;
 }
 
-/* Mobile Thumbnails - Show below main image in horizontal row */
-.gallery-thumbnails {
-  display: flex;
-  flex-direction: row;
-  gap: var(--space-md);
-  overflow-x: auto;
-  padding-bottom: var(--space-sm);
-  padding-top: var(--space-md);
-}
-
-.thumb {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.thumb img {
-  width: 60px;
-  height: auto;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-}
-
-.thumb:hover img,
-.thumb.active img {
-  opacity: 1;
-}
-
 /* Product Bottom Section - Reviews and More Information */
 .product-bottom-section {
   display: flex;
@@ -956,7 +924,6 @@ footer {
   /* Desktop Gallery Grid */
   .product-gallery {
     display: grid;
-    grid-template-columns: 80px 1fr; /* Thumbs | Main */
     gap: var(--space-md);
     position: sticky;
     top: 20px;
