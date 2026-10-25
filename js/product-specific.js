@@ -28,6 +28,10 @@ async function displayProduct() {
       return product.id === productId;
     }
     const product = products.find(isCorrectProduct);
+    if (!product) {
+      productTitle.textContent = "Product not found";
+      return;
+    } //This is a guard so a bad or missing id doesn't crash the page.
 
     productTitle.textContent = product.title;
     productImage.src = product.image.url;
