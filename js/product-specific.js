@@ -56,20 +56,44 @@ async function displayProduct() {
 
     //The color picker on the product page
     const productColor = product.baseColor;
+
     const colorOptions = productContainer.querySelector(".color-options");
-    colorOptions.innerHTML = ""; // Clear existing color options before adding new ones
-    const colorOption = productContainer.querySelector(".color-radio");
-    const colorInput = productContainer.querySelector(".color-radio input");
-    const colorLabel = productContainer.querySelector(".color-radio label");
-    const colorText = productContainer.querySelector(".color-radio .sr-only");
+
+    const colorOption = colorOptions.querySelector(".color-radio");
+
+    const colorInput = colorOption.querySelector("input");
+
+    const colorText = colorOption.querySelector(".sr-only");
+
+    colorInput.value = productColor;
+    colorOption.className = "color-radio"; // Drops the hardcoded "black" class from the HTML
+    colorOption.style.backgroundColor = productColor;
+    colorText.textContent = productColor;
 
     // Product sizes on the product page
+    const productSizes = product.sizes;
     const sizeOptions = productContainer.querySelector(".size-options");
-    for (const size of product.sizes) {
+
+    for (const size of productSizes) {
+      const sizeOption = document.createElement("div");
+      sizeOption.classList.add("size-box");
+
+      const sizeInput = document.createElement("input");
+      sizeInput.type = "radio";
+      sizeInput.id = `size-${size.toLowerCase()}`;
+      sizeInput.name = "size";
+      sizeInput.value = size;
+
+      const sizeLabel = document.createElement("label");
+      sizeLabel.htmlFor = sizeInput.id;
+      sizeLabel.textContent = size;
+
+      sizeOption.appendChild(sizeInput);
+      sizeOption.appendChild(sizeLabel);
+      sizeOptions.appendChild(sizeOption);
     }
 
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
-    // Will look for a solution that dynamically updates the breadcrumb based on the product's gender instead of specifically setting a rule for only one of the genders but not the other.
     const categoryBreadcrumb = productContainer.querySelector(
       '.breadcrumbs a[href="../category/products-women.html"]',
     );
