@@ -73,6 +73,7 @@ async function displayProduct() {
     // Product sizes on the product page
     const productSizes = product.sizes;
     const sizeOptions = productContainer.querySelector(".size-options");
+    sizeOptions.innerHTML = ""; // Removes the hardcoded sizes from the HTML
 
     for (const size of productSizes) {
       const sizeOption = document.createElement("div");
