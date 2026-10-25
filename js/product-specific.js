@@ -54,6 +54,20 @@ async function displayProduct() {
       currentPrice,
     });
 
+    //The color picker on the product page
+    const productColor = product.baseColor;
+    const colorOptions = productContainer.querySelector(".color-options");
+    colorOptions.innerHTML = ""; // Clear existing color options before adding new ones
+    const colorOption = productContainer.querySelector(".color-radio");
+    const colorInput = productContainer.querySelector(".color-radio input");
+    const colorLabel = productContainer.querySelector(".color-radio label");
+    const colorText = productContainer.querySelector(".color-radio .sr-only");
+
+    // Product sizes on the product page
+    const sizeOptions = productContainer.querySelector(".size-options");
+    for (const size of product.sizes) {
+    }
+
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
     // Will look for a solution that dynamically updates the breadcrumb based on the product's gender instead of specifically setting a rule for only one of the genders but not the other.
     const categoryBreadcrumb = productContainer.querySelector(
