@@ -37,6 +37,42 @@ async function displayProduct() {
     productImage.alt = product.image.alt;
     productDescription.textContent = product.description;
 
+    //Add to cart functionality will be implemented here
+    const addToCartButton = productContainer.querySelectorAll(".add-to-cart");
+    function handleAddToCart() {
+      console.log("Add to Cart clicked");
+    }
+
+    //Add to cart event listener and functionality
+    addToCartButton.forEach((button) => {
+      button.addEventListener("click", handleAddToCart);
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        size: selectedSize.value,
+        color: product.baseColor,
+        price: product.price,
+        quantity: Number(selectedQuantity.value),
+      };
+      JSON.stringify(cartItem);
+      JSON.parse;
+    });
+
+    const selectedSize = productContainer.querySelector(
+      'input[name="size"]:checked',
+    );
+    const selectedColor = productContainer.querySelector(
+      'input[name="color"]:checked',
+    );
+    const selectedQuantity = productContainer.querySelector(
+      'input[name="quantity"]:checked',
+    );
+
+    if (!selectedSize || !selectedColor || !selectedQuantity) {
+      console.log("Please select size, color, and quantity");
+      return;
+    }
+
     //The price onSale and full price
     const isOnSale = product.onSale;
     const originalPrice = productContainer.querySelector(".original-price");
