@@ -1,26 +1,29 @@
 import { fetchProducts } from "./api.js";
 
-async function displayCartProduct() {
-  //Get stored cart from localStorage
+//C. CART PAGE — cart.js
+//──────────────────────
 
-  // Get product data if needed / Load Cart
+//read "cart"
+//        ↓
+//JSON.parse
+//        ↓
+//cart array
+//        ↓
+//FOR LOOP
+//        ↓
+//create cartTile HTML
+//        ↓
+//cartList.appendChild(cartTile)
 
-  // Loop through cart items
+//D. REMOVE
+//─────────
 
-  //Build one cart tile per item
-
-  // Remove-button functionality
-  const removeButtons = document.querySelectorAll(".btn-remove");
-  removeButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const cartItemId = event.target.dataset.id;
-      // Remove the item from localStorage cart
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const updatedCart = cart.filter((item) => item.id !== cartItemId);
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
-      // Refresh the page or update the cart display
-      location.reload();
-    });
-  });
-}
-displayCartProduct();
+//user clicks X
+//        ↓
+//identify which cartItem
+//        ↓
+//remove from array
+//        ↓
+//save array
+//        ↓
+//remove/re-render HTML

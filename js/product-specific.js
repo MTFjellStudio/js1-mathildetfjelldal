@@ -38,40 +38,43 @@ async function displayProduct() {
     productDescription.textContent = product.description;
 
     //Add to cart functionality will be implemented here
-    const addToCartButton = productContainer.querySelectorAll(".add-to-cart");
-    function handleAddToCart() {
-      console.log("Add to Cart clicked");
-    }
+    //API finds current product - Done
+    //        ↓
+    //user selects SIZE
+    const addToCartButton = productContainer.querySelector(".add-to-cart");
+    addToCartButton.addEventListener("click", () => {
+      event.preventDefault();
 
-    //Add to cart event listener and functionality
-    addToCartButton.forEach((button) => {
-      button.addEventListener("click", handleAddToCart);
-      const cartItem = {
-        id: product.id,
-        title: product.title,
-        size: selectedSize.value,
-        color: product.baseColor,
-        price: product.price,
-        quantity: Number(selectedQuantity.value),
-      };
-      JSON.stringify(cartItem);
-      JSON.parse;
+      const selectedSize = productContainer.querySelector(
+        'input[name="size"]:checked',
+      );
+      if (!selectedSize) {
+        alert("Please select a size");
+        return;
+      }
+
+      console.log({
+        selectedSize: selectedSize.value,
+      });
     });
+    //user enters QUANTITY
+    //        ↓
+    //user clicks ADD TO CART
+    //        ↓
+    //create cartItem DATA object
+    //        ↓
+    //save it to localStorage
 
-    const selectedSize = productContainer.querySelector(
-      'input[name="size"]:checked',
-    );
-    const selectedColor = productContainer.querySelector(
-      'input[name="color"]:checked',
-    );
-    const selectedQuantity = productContainer.querySelector(
-      'input[name="quantity"]:checked',
-    );
+    //B. STORAGE
+    //──────────
 
-    if (!selectedSize || !selectedColor || !selectedQuantity) {
-      console.log("Please select size, color, and quantity");
-      return;
-    }
+    //"cart"
+
+    //[
+    //  cartItem,
+    //  cartItem,
+    //  cartItem
+    //]
 
     //The price onSale and full price
     const isOnSale = product.onSale;
