@@ -39,10 +39,12 @@ async function displayProduct() {
 
     //Add to cart functionality will be implemented here
     //API finds current product - Done
+    //Define JS naming
+    const addToCartButton = productContainer.querySelector(".btn-narrow");
     //        ↓
-    //user selects SIZE
-    const addToCartButton = productContainer.querySelector(".add-to-cart");
-    addToCartButton.addEventListener("click", () => {
+    //user selects COLOR - API product data
+    //user selects SIZE - User form choice. Does not need event listener.
+    addToCartButton.addEventListener("click", (event) => {
       event.preventDefault();
 
       const selectedSize = productContainer.querySelector(
@@ -59,7 +61,29 @@ async function displayProduct() {
     });
     //user enters QUANTITY
     //        ↓
-    //user clicks ADD TO CART
+    const quantityInput = productContainer.querySelector(
+      'input[name="quantity"]',
+    );
+    const decreaseButton = productContainer.querySelector(
+      'button[aria-label="Decrease quantity"]',
+    );
+    const increaseButton = productContainer.querySelector(
+      'button[aria-label="Increase quantity"]',
+    );
+
+    decreaseButton.addEventListener("click", () => {
+      const minimum = Number(quantityInput.min) || 1;
+      const current = Number(quantityInput.value) || minimum;
+      quantityInput.value = Math.max(minimum, current - 1);
+    });
+
+    increaseButton.addEventListener("click", () => {
+      const minimum = Number(quantityInput.min) || 1;
+      const current = Number(quantityInput.value) || minimum;
+      quantityInput.value = current + 1;
+    });
+
+    //user clicks ADD TO CART - event listener added above
     //        ↓
     //create cartItem DATA object
     //        ↓
