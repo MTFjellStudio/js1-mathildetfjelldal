@@ -37,69 +37,6 @@ async function displayProduct() {
     productImage.alt = product.image.alt;
     productDescription.textContent = product.description;
 
-    //Add to cart functionality will be implemented here
-    //API finds current product - Done
-    //Define JS naming
-    const addToCartButton = productContainer.querySelector(".btn-narrow");
-    //        ↓
-    //user selects COLOR - API product data
-    //user selects SIZE - User form choice. Does not need event listener.
-    addToCartButton.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      const selectedSize = productContainer.querySelector(
-        'input[name="size"]:checked',
-      );
-      if (!selectedSize) {
-        alert("Please select a size");
-        return;
-      }
-
-      console.log({
-        selectedSize: selectedSize.value,
-      });
-    });
-    //user enters QUANTITY
-    //        ↓
-    const quantityInput = productContainer.querySelector(
-      'input[name="quantity"]',
-    );
-    const decreaseButton = productContainer.querySelector(
-      'button[aria-label="Decrease quantity"]',
-    );
-    const increaseButton = productContainer.querySelector(
-      'button[aria-label="Increase quantity"]',
-    );
-
-    decreaseButton.addEventListener("click", () => {
-      const minimum = Number(quantityInput.min) || 1;
-      const current = Number(quantityInput.value) || minimum;
-      quantityInput.value = Math.max(minimum, current - 1);
-    });
-
-    increaseButton.addEventListener("click", () => {
-      const minimum = Number(quantityInput.min) || 1;
-      const current = Number(quantityInput.value) || minimum;
-      quantityInput.value = current + 1;
-    });
-
-    //user clicks ADD TO CART - event listener added above
-    //        ↓
-    //create cartItem DATA object
-    //        ↓
-    //save it to localStorage
-
-    //B. STORAGE
-    //──────────
-
-    //"cart"
-
-    //[
-    //  cartItem,
-    //  cartItem,
-    //  cartItem
-    //]
-
     //The price onSale and full price
     const isOnSale = product.onSale;
     const originalPrice = productContainer.querySelector(".original-price");
@@ -159,6 +96,76 @@ async function displayProduct() {
       sizeOption.appendChild(sizeLabel);
       sizeOptions.appendChild(sizeOption);
     }
+
+    //Add to cart functionality will be implemented here
+    //API finds current product - Done
+    //Define JS naming
+    const addToCartButton = productContainer.querySelector(".add-to-cart");
+
+    //user selects QUANTITY - User form choice.
+    const quantityInput = productContainer.querySelector(
+      'input[name="quantity"]',
+    );
+
+    const decreaseButton = productContainer.querySelector(
+      'button[aria-label="Decrease quantity"]',
+    );
+    const increaseButton = productContainer.querySelector(
+      'button[aria-label="Increase quantity"]',
+    );
+
+    decreaseButton.addEventListener("click", () => {
+      const minimum = Number(quantityInput.min) || 1;
+      const current = Number(quantityInput.value) || minimum;
+      quantityInput.value = Math.max(minimum, current - 1);
+    });
+
+    increaseButton.addEventListener("click", () => {
+      const minimum = Number(quantityInput.min) || 1;
+      const current = Number(quantityInput.value) || minimum;
+      quantityInput.value = current + 1;
+    });
+
+    // Add to cart click - Removed the additional event listener and moved quantity further up.
+    addToCartButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      //user selects SIZE - User form choice.
+      const selectedSize = productContainer.querySelector(
+        'input[name="size"]:checked',
+      );
+
+      if (!selectedSize) {
+        alert("Please select a size");
+        return;
+      }
+
+      console.log({
+        product: product,
+        size: selectedSize.value,
+        quantity: Number(quantityInput.value),
+      });
+
+      //create cartItem DATA object
+      //        ↓
+      const cartItem = {
+        productId: product.id,
+        size: selectedSize.value,
+        quantity: Number(quantityInput.value),
+      };
+      //save it to localStorage
+
+      //B. STORAGE
+      //──────────
+
+      //"cart"
+
+      //[
+      //  cartItem,
+      //  cartItem,
+      //  cartItem
+      //]
+    });
 
     // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.
     const relatedGrid = document.querySelector(".related-products-grid");
