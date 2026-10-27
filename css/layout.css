@@ -908,12 +908,22 @@ footer {
   font-weight: bold;
 }
 
+.price-large .original-price {
+  text-decoration: line-through;
+  margin-right: var(--space-sm);
+}
+
 /* Product Bottom Section - Reviews and More Information */
 .product-bottom-section {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
   margin-top: var(--space-2xl);
+}
+
+/* Mobile: More Information above "You might also like" so the order seems more natural. */
+.product-details-accordion {
+  order: -1;
 }
 
 /* DESKTOP LAYOUT (900px+) */

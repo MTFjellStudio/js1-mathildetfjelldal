@@ -24,7 +24,6 @@ async function displayProduct() {
     });
 
     function isCorrectProduct(product) {
-      //Changed this for readability. I did not feel I understood the other code well enough to implement it. const product = products.find((p) => String(p.id) === productId); originally.
       return product.id === productId;
     }
     const product = products.find(isCorrectProduct);
@@ -96,6 +95,47 @@ async function displayProduct() {
       sizeOption.appendChild(sizeInput);
       sizeOption.appendChild(sizeLabel);
       sizeOptions.appendChild(sizeOption);
+    }
+
+    // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.
+    const relatedGrid = document.querySelector(".related-products-grid");
+    const relatedProducts = products
+      .filter((p) => p.id !== product.id && p.gender === product.gender)
+      .slice(0, 4);
+
+    for (const related of relatedProducts) {
+      const card = document.createElement("article");
+      card.classList.add("product-card");
+
+      const cardMedia = document.createElement("div");
+      cardMedia.classList.add("card-media");
+
+      const link = document.createElement("a");
+      link.href = `index.html?id=${related.id}`;
+
+      const image = document.createElement("img");
+      image.src = related.image.url;
+      image.alt = related.image.alt;
+
+      const cardTitle = document.createElement("div");
+      cardTitle.classList.add("card-title");
+
+      const title = document.createElement("h3");
+      title.textContent = related.title;
+
+      const cardFooter = document.createElement("div");
+      cardFooter.classList.add("card-footer");
+
+      const price = document.createElement("span");
+      price.classList.add("price");
+      price.textContent = `${related.price} NOK`;
+
+      link.appendChild(image);
+      cardMedia.appendChild(link);
+      cardTitle.appendChild(title);
+      cardFooter.appendChild(price);
+      card.append(cardMedia, cardTitle, cardFooter);
+      relatedGrid.appendChild(card);
     }
 
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
