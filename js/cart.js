@@ -12,6 +12,8 @@ async function displayCart() {
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
 
+  console.log(cartItems);
+
   const cartItemCount = document.querySelector(".cart-item-count");
   function getCartCount() {
     let total = 0;
@@ -32,8 +34,6 @@ async function displayCart() {
       cartItemCount.textContent = `${total} Items`;
     }
   }
-
-  console.log(cartItems);
 
   for (const cartItem of cartItems) {
     const product = products.find((p) => p.id === cartItem.productId);
@@ -171,6 +171,7 @@ async function displayCart() {
 
       // save changed cartItems to localStorage
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      updateCartCount();
 
       // remove this cartTile from the page
       cartTile.remove();
@@ -184,6 +185,7 @@ async function displayCart() {
       quantityInput.value = cartItem.quantity;
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      updateCartCount();
     });
 
     decreaseButton.addEventListener("click", () => {
@@ -194,6 +196,7 @@ async function displayCart() {
       quantityInput.value = cartItem.quantity;
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      updateCartCount();
     });
   }
 }
