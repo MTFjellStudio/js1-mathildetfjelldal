@@ -119,8 +119,6 @@ async function displayCart() {
       cartColor.textContent = `Color: ${product.baseColor}`;
       cartSize.textContent = `Size: ${cartItem.size}`;
 
-      cartPrice.textContent = `${product.price} NOK`;
-
       quantityInput.type = "number";
       quantityInput.min = "1";
       quantityInput.value = cartItem.quantity;
@@ -128,14 +126,39 @@ async function displayCart() {
       increaseButton.textContent = "+";
       decreaseButton.type = "button";
       increaseButton.type = "button";
-    }
-  }
 
-  //D. REMOVE
-  //─────────
+      if (product.onSale) {
+        cartPrice.textContent = `${product.discountedPrice} NOK`;
+      } else {
+        cartPrice.textContent = `${product.price} NOK`;
+      }
+
+      removeButton.textContent = "×";
+      removeButton.type = "button";
+    }
+
+    removeButton.addEventListener("click", () => {
+      // find which cartItem this button belongs to
+        const cartItemIndex = cartItems.indexOf(cartItem);
+        if (cartItemIndex !== -1) {
+          cartItems.splice(cartItemIndex, 1);
+        }
+      // remove that item from cartItems
+
+      // save changed cartItems to localStorage
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      // remove this cartTile from the page
+      cartTile.remove();
+
+      console.log(cartItemIndex);
+
+    });
+  }
 
   //user clicks X
   //        ↓
+
   //identify which cartItem
   //        ↓
   //remove from array
