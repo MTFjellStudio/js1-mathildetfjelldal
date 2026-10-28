@@ -63,7 +63,40 @@ for (const cartItem of cartItems) {
   middleRow.appendChild(divider);
   middleRow.appendChild(cartSize);
 
-  //
+  //Bottom Row - Quantity and Price
+  const bottomRow = document.createElement("div");
+  bottomRow.classList.add("cart-row", "bottom");
+
+  const quantitySelector = document.createElement("div");
+  quantitySelector.classList.add("quantity-selector");
+
+  const decreaseButton = document.createElement("button");
+
+  const quantityInput = document.createElement("input");
+
+  const increaseButton = document.createElement("button");
+
+  quantitySelector.appendChild(decreaseButton);
+  quantitySelector.appendChild(quantityInput);
+  quantitySelector.appendChild(increaseButton);
+
+  const cartPrice = document.createElement("span");
+  cartPrice.classList.add("price");
+
+  bottomRow.appendChild(quantitySelector);
+  bottomRow.appendChild(cartPrice);
+
+  // Assemble cart info section
+  cartInfo.appendChild(topRow);
+  cartInfo.appendChild(middleRow);
+  cartInfo.appendChild(bottomRow);
+
+  // Assemble cart tile
+  cartTile.appendChild(cartMedia);
+  cartTile.appendChild(cartInfo);
+
+  // Add tile to page
+  cartList.appendChild(cartTile);
 }
 
 //D. REMOVE
