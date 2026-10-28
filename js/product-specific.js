@@ -160,14 +160,6 @@ async function displayProduct() {
       cartItems.push(cartItem);
       // Convert the updated array to JSON text and save it under the "cartItems" key.
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-      //"cart"
-
-      //[
-      //  cartItem,
-      //  cartItem,
-      //  cartItem
-      //]
     });
 
     // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.
