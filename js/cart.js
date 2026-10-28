@@ -128,9 +128,9 @@ async function displayCart() {
       increaseButton.type = "button";
 
       if (product.onSale) {
-        cartPrice.textContent = `${product.discountedPrice} NOK`;
+        cartPrice.textContent = `${product.discountedPrice} €`;
       } else {
-        cartPrice.textContent = `${product.price} NOK`;
+        cartPrice.textContent = `${product.price} €`;
       }
 
       removeButton.textContent = "×";
@@ -139,10 +139,10 @@ async function displayCart() {
 
     removeButton.addEventListener("click", () => {
       // find which cartItem this button belongs to
-        const cartItemIndex = cartItems.indexOf(cartItem);
-        if (cartItemIndex !== -1) {
-          cartItems.splice(cartItemIndex, 1);
-        }
+      const cartItemIndex = cartItems.indexOf(cartItem);
+      if (cartItemIndex !== -1) {
+        cartItems.splice(cartItemIndex, 1);
+      }
       // remove that item from cartItems
 
       // save changed cartItems to localStorage
@@ -152,20 +152,26 @@ async function displayCart() {
       cartTile.remove();
 
       console.log(cartItemIndex);
+    });
 
+    increaseButton.addEventListener("click", () => {
+      cartItem.quantity = cartItem.quantity + 1;
+
+      quantityInput.value = cartItem.quantity;
+
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    });
+
+    decreaseButton.addEventListener("click", () => {
+      const minimum = Number(quantityInput.min) || 1;
+
+      cartItem.quantity = Math.max(minimum, cartItem.quantity - 1);
+
+      quantityInput.value = cartItem.quantity;
+
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
     });
   }
-
-  //user clicks X
-  //        ↓
-
-  //identify which cartItem
-  //        ↓
-  //remove from array
-  //        ↓
-  //save array
-  //        ↓
-  //remove/re-render HTML
 }
 
 displayCart();

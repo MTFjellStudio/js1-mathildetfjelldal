@@ -847,6 +847,8 @@
 
 .cart-media {
   display: flex;
+  padding: 16px;
+  background-color: #fff;
 }
 
 .cart-media img {
@@ -854,6 +856,7 @@
   max-height: 250px;
   object-fit: cover;
   object-position: top; /* This focuses on the top of the image when a square crop. Consider for desktop variant as well? */
+  border-radius: var(--radius-md);
 }
 
 .cart-info {
@@ -903,6 +906,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.cart-tile .quantity-selector {
+  width: auto;
 }
 
 .cart-row.bottom .price {
