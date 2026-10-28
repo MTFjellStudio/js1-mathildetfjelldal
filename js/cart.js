@@ -5,6 +5,7 @@ import { fetchProducts } from "./api.js";
 
 //read "cart"
 //        ↓
+
 //JSON.parse
 //        ↓
 //cart array

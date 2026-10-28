@@ -153,10 +153,13 @@ async function displayProduct() {
         size: selectedSize.value,
         quantity: Number(quantityInput.value),
       };
-      //save it to localStorage
 
-      //B. STORAGE
-      //──────────
+      // Read the saved cart from localStorage and parse it into an array; use an empty array if none exists yet.
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
+      // Add the newly created item to the cart array.
+      cartItems.push(cartItem);
+      // Convert the updated array to JSON text and save it under the "cartItems" key.
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
       //"cart"
 
