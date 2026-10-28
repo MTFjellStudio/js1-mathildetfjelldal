@@ -1,113 +1,148 @@
 import { fetchProducts } from "./api.js";
 
-//C. CART PAGE — cart.js
-//──────────────────────
+async function displayCart() {
+  const products = await fetchProducts();
+  console.log(products);
 
-//read "cart"
-//        ↓
-const cartList = document.querySelector(".cart-list");
+  const cartList = document.querySelector(".cart-list");
 
-//JSON.parse
-//        ↓
-const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
+  if (!cartList) {
+    return;
+  }
 
-console.log(cartItems);
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
 
-//FOR LOOP
-//        ↓
-//create cartTile HTML
-//        ↓
-//cartList.appendChild(cartTile)
-for (const cartItem of cartItems) {
-  const cartTile = document.createElement("div");
-  cartTile.classList.add("cart-tile");
+  console.log(cartItems);
 
-  // Media and Image
-  const cartMedia = document.createElement("img");
-  cartMedia.classList.add("cart-media");
+  for (const cartItem of cartItems) {
+    const product = products.find((p) => p.id === cartItem.productId);
+    if (!product) {
+      continue;
+    }
 
-  const cartImage = document.createElement("img");
+    const cartTile = document.createElement("div");
+    cartTile.classList.add("cart-tile");
 
-  cartMedia.appendChild(cartImage);
+    // Media and Image
+    const cartMedia = document.createElement("div");
+    cartMedia.classList.add("cart-media");
+    const cartLink = document.createElement("a");
+    const cartImage = document.createElement("img");
 
-  //Cart Info (Contains top, middle and bottom row)
-  const cartInfo = document.createElement("div");
-  cartInfo.classList.add("cart-info");
+    cartLink.appendChild(cartImage);
+    cartMedia.appendChild(cartLink);
 
-  //Top Row - Includes Title + remove button
-  const topRow = document.createElement("div");
-  topRow.classList.add("cart-row", "top");
+    //Cart Info (Contains top, middle and bottom row)
+    const cartInfo = document.createElement("div");
+    cartInfo.classList.add("cart-info");
 
-  const cartTitle = document.createElement("h3");
+    //Top Row - Includes Title + remove button
+    const topRow = document.createElement("div");
+    topRow.classList.add("cart-row", "top");
 
-  const removeButton = document.createElement("button");
-  removeButton.classList.add("btn-remove");
+    const cartTitle = document.createElement("h3");
 
-  topRow.appendChild(cartTitle);
-  topRow.appendChild(removeButton);
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("btn-remove");
 
-  //Middle Row - Color and Size
-  const middleRow = document.createElement("div");
-  middleRow.classList.add("cart-row", "middle");
+    topRow.appendChild(cartTitle);
+    topRow.appendChild(removeButton);
 
-  const cartColor = document.createElement("span");
-  cartColor.classList.add("variant-text");
+    //Middle Row - Color and Size
+    const middleRow = document.createElement("div");
+    middleRow.classList.add("cart-row", "middle");
 
-  const divider = document.createElement("span");
-  divider.classList.add("divider");
+    const variantText = document.createElement("p");
+    variantText.classList.add("variant-text");
 
-  const cartSize = document.createElement("span");
-  cartSize.classList.add("variant-text");
+    const cartColor = document.createElement("span");
+    cartColor.classList.add("variant-text");
 
-  middleRow.appendChild(cartColor);
-  middleRow.appendChild(divider);
-  middleRow.appendChild(cartSize);
+    const divider = document.createElement("span");
+    divider.classList.add("divider");
 
-  //Bottom Row - Quantity and Price
-  const bottomRow = document.createElement("div");
-  bottomRow.classList.add("cart-row", "bottom");
+    const cartSize = document.createElement("span");
+    cartSize.classList.add("variant-text");
 
-  const quantitySelector = document.createElement("div");
-  quantitySelector.classList.add("quantity-selector");
+    variantText.appendChild(cartColor);
+    variantText.appendChild(divider);
+    variantText.appendChild(cartSize);
+    middleRow.appendChild(variantText);
 
-  const decreaseButton = document.createElement("button");
+    //Bottom Row - Quantity and Price
+    const bottomRow = document.createElement("div");
+    bottomRow.classList.add("cart-row", "bottom");
 
-  const quantityInput = document.createElement("input");
+    const formActions = document.createElement("div");
+    formActions.classList.add("form-actions");
 
-  const increaseButton = document.createElement("button");
+    const quantitySelector = document.createElement("div");
+    quantitySelector.classList.add("quantity-selector");
 
-  quantitySelector.appendChild(decreaseButton);
-  quantitySelector.appendChild(quantityInput);
-  quantitySelector.appendChild(increaseButton);
+    const decreaseButton = document.createElement("button");
 
-  const cartPrice = document.createElement("span");
-  cartPrice.classList.add("price");
+    const quantityInput = document.createElement("input");
 
-  bottomRow.appendChild(quantitySelector);
-  bottomRow.appendChild(cartPrice);
+    const increaseButton = document.createElement("button");
 
-  // Assemble cart info section
-  cartInfo.appendChild(topRow);
-  cartInfo.appendChild(middleRow);
-  cartInfo.appendChild(bottomRow);
+    quantitySelector.appendChild(decreaseButton);
+    quantitySelector.appendChild(quantityInput);
+    quantitySelector.appendChild(increaseButton);
 
-  // Assemble cart tile
-  cartTile.appendChild(cartMedia);
-  cartTile.appendChild(cartInfo);
+    const cartPrice = document.createElement("span");
+    cartPrice.classList.add("price");
 
-  // Add tile to page
-  cartList.appendChild(cartTile);
+    formActions.appendChild(quantitySelector);
+    bottomRow.appendChild(formActions);
+    bottomRow.appendChild(cartPrice);
+
+    // Assemble cart info section
+    cartInfo.appendChild(topRow);
+    cartInfo.appendChild(middleRow);
+    cartInfo.appendChild(bottomRow);
+
+    // Assemble cart tile
+    cartTile.appendChild(cartMedia);
+    cartTile.appendChild(cartInfo);
+
+    // Add tile to page
+    cartList.appendChild(cartTile);
+
+    if (product) {
+      cartImage.src = product.image.url;
+      cartImage.alt = product.image.alt;
+
+      cartLink.href = `../product/index.html?id=${product.id}`;
+
+      cartTitle.textContent = product.title;
+
+      cartColor.textContent = `Color: ${product.baseColor}`;
+      cartSize.textContent = `Size: ${cartItem.size}`;
+
+      cartPrice.textContent = `${product.price} NOK`;
+
+      quantityInput.type = "number";
+      quantityInput.min = "1";
+      quantityInput.value = cartItem.quantity;
+      decreaseButton.textContent = "-";
+      increaseButton.textContent = "+";
+      decreaseButton.type = "button";
+      increaseButton.type = "button";
+    }
+  }
+
+  //D. REMOVE
+  //─────────
+
+  //user clicks X
+  //        ↓
+  //identify which cartItem
+  //        ↓
+  //remove from array
+  //        ↓
+  //save array
+  //        ↓
+  //remove/re-render HTML
 }
 
-//D. REMOVE
-//─────────
-
-//user clicks X
-//        ↓
-//identify which cartItem
-//        ↓
-//remove from array
-//        ↓
-//save array
-//        ↓
-//remove/re-render HTML
+displayCart();
