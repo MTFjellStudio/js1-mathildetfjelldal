@@ -12,6 +12,27 @@ async function displayCart() {
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
 
+  const cartItemCount = document.querySelector(".cart-item-count");
+  function getCartCount() {
+    let total = 0;
+
+    for (const cartItem of cartItems) {
+      total = total + cartItem.quantity;
+    }
+    return total;
+  }
+  cartItemCount.textContent = `${getCartCount()} Items`;
+
+  function updateCartCount() {
+    const total = getCartCount();
+
+    if (total === 1) {
+      cartItemCount.textContent = "1 Item";
+    } else {
+      cartItemCount.textContent = `${total} Items`;
+    }
+  }
+
   console.log(cartItems);
 
   for (const cartItem of cartItems) {
@@ -41,6 +62,8 @@ async function displayCart() {
     topRow.classList.add("cart-row", "top");
 
     const cartTitle = document.createElement("h3");
+    const cartTitleLink = document.createElement("a");
+    cartTitle.appendChild(cartTitleLink);
 
     const removeButton = document.createElement("button");
     removeButton.classList.add("btn-remove");
@@ -114,7 +137,8 @@ async function displayCart() {
 
       cartLink.href = `../product/index.html?id=${product.id}`;
 
-      cartTitle.textContent = product.title;
+      cartTitleLink.href = cartLink.href;
+      cartTitleLink.textContent = product.title;
 
       cartColor.textContent = `Color: ${product.baseColor}`;
       cartSize.textContent = `Size: ${cartItem.size}`;
