@@ -159,7 +159,18 @@ async function displayCheckoutItems() {
 
       subtotal = subtotal + productPrice * cartItem.quantity;
     }
+
+    const subtotalPrice = document.querySelector(".subtotal-price");
+    const shippingPrice = document.querySelector(".shipping-price");
+    const totalPrice = document.querySelector(".total-price");
+
+    shippingPrice.textContent = `0 €`;
+    totalPrice.textContent = `${subtotal} €`;
+    subtotalPrice.textContent = `${subtotal} €`;
+
     return subtotal;
   }
+
+  console.log(summaryCost());
 }
 displayCheckoutItems();
