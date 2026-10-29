@@ -4,12 +4,6 @@ async function displayCategoryProducts() {
   // Loading products BEFORE fetching them from the API
   const productStatus = document.querySelector(".product-status");
 
-  if (productStatus) {
-    productStatus.textContent = "Loading products...";
-  }
-
-  const products = await fetchProducts();
-
   const womenProductGrid = document.querySelector(".women-product-grid");
   const menProductGrid = document.querySelector(".men-product-grid");
 
@@ -26,11 +20,38 @@ async function displayCategoryProducts() {
     return;
   }
 
+  if (productStatus) {
+    productStatus.textContent = "Loading products...";
+  }
+
+  const products = await fetchProducts();
+
+  // Error check
+  if (products.length === 0) {
+    if (productStatus) {
+      productStatus.textContent = "Unable to load products. Please try again.";
+    }
+    return;
+  }
+
+  // Clears the loading message once products are fetched successfully
+  if (productStatus) {
+    productStatus.textContent = "";
+  }
+
   function isCorrectGender(product) {
     return product.gender === gender;
   }
 
   const categoryProducts = products.filter(isCorrectGender);
+
+  //Added so that filtering doesnt get mistaken for an error
+  if (categoryProducts.length === 0) {
+    if (productStatus) {
+      productStatus.textContent = "No products found in this category.";
+    }
+    return;
+  }
 
   for (const product of categoryProducts) {
     console.log(product);
