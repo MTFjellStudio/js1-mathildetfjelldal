@@ -1,7 +1,25 @@
 import { fetchProducts } from "./api.js";
 
 async function displayCart() {
+  const productStatus = document.querySelector(".product-status");
+
+  if (productStatus) {
+    productStatus.textContent = "Loading cart...";
+  }
+
   const products = await fetchProducts();
+
+  if (products.length === 0) {
+    if (productStatus) {
+      productStatus.textContent = "Unable to load products. Please try again.";
+    }
+    return;
+  }
+
+  if (productStatus) {
+    productStatus.textContent = "";
+  }
+
   console.log(products);
 
   const cartList = document.querySelector(".cart-list");
