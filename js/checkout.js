@@ -191,5 +191,25 @@ async function displayCheckoutItems() {
   }
 
   console.log(summaryCost());
+
+  const payNowButton = document.querySelector("#pay-now-button");
+
+  payNowButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const requiredInputs = document.querySelectorAll(
+      ".checkout-forms input[required]",
+    );
+
+    for (const input of requiredInputs) {
+      if (!input.reportValidity()) {
+        return;
+      }
+    }
+
+    localStorage.removeItem("cartItems");
+
+    window.location.href = "confirmation/index.html";
+  });
 }
 displayCheckoutItems();

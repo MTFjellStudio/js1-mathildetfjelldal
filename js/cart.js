@@ -25,6 +25,39 @@ async function displayCart() {
   }
   cartItemCount.textContent = `${getCartCount()} Items`;
 
+  function summaryCost() {
+    let subtotal = 0;
+
+    for (const cartItem of cartItems) {
+      const product = products.find((p) => p.id === cartItem.productId);
+
+      if (!product) {
+        continue;
+      }
+
+      let productPrice;
+
+      if (product.onSale) {
+        productPrice = product.discountedPrice;
+      } else {
+        productPrice = product.price;
+      }
+
+      subtotal = subtotal + productPrice * cartItem.quantity;
+    }
+
+    const subtotalPrice = document.querySelector(".subtotal-price");
+    const shippingPrice = document.querySelector(".shipping-price");
+    const totalPrice = document.querySelector(".total-price");
+    const shipping = 0; // Standard delivery is free. Express is chosen at checkout.
+
+    subtotalPrice.textContent = `${subtotal.toFixed(2)} €`;
+    shippingPrice.textContent = `${shipping.toFixed(2)} €`;
+    totalPrice.textContent = `${(subtotal + shipping).toFixed(2)} €`;
+  }
+
+  summaryCost();
+
   function updateCartCount() {
     const total = getCartCount();
 
@@ -33,6 +66,8 @@ async function displayCart() {
     } else {
       cartItemCount.textContent = `${total} Items`;
     }
+
+    summaryCost();
   }
 
   for (const cartItem of cartItems) {
