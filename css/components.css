@@ -503,8 +503,56 @@
   background-color: var(--color-white);
 }
 
+.card-button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  border-radius: 50%;
+  background-color: var(--color-tertiary);
+  color: var(--color-white);
+  border: none;
+}
+
+.card-button:hover {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .card-footer .price {
   margin-left: 4px;
+}
+
+.card-footer .price.sale-price {
+  color: var(--color-alert);
+}
+
+.card-footer .price.original-price {
+  text-decoration: line-through;
+}
+
+.card-base {
+  padding: 20px;
+  background-color: var(--color-white);
+}
+
+.card-sizes {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.card-sizes .size-box {
+  flex: 1;
+}
+
+.card-sizes .size-box label {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: var(--font-size-xs);
 }
 
 @media (min-width: 900px) {
