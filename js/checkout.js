@@ -24,7 +24,7 @@ async function displayCheckoutItems() {
     }
     return total;
   }
-  cartItemCount.textContent = `${getCartCount()} Items`;
+  updateCartCount();
 
   function updateCartCount() {
     const total = getCartCount();
@@ -139,26 +139,27 @@ async function displayCheckoutItems() {
     }
   }
 
-  async function summaryCost() {
-    //Subtotal Row instead of bottom row - Price
-    const bottomRow = document.createElement("div");
-    bottomRow.classList.add("cart-row", "bottom");
+  function summaryCost() {
+    let subtotal = 0;
 
-    const cartPrice = document.createElement("span");
-    cartPrice.classList.add("price");
+    for (const cartItem of cartItems) {
+      const product = products.find((p) => p.id === cartItem.productId);
 
-    bottomRow.appendChild(cartPrice);
+      if (!product) {
+        continue;
+      }
 
-    if (product.onSale) {
-      cartPrice.textContent = `${product.discountedPrice} €`;
-      cartPrice.style.color = "var(--color-alert)";
-    } else {
-      cartPrice.textContent = `${product.price} €`;
+      let productPrice;
+
+      if (product.onSale) {
+        productPrice = product.discountedPrice;
+      } else {
+        productPrice = product.price;
+      }
+
+      subtotal = subtotal + productPrice * cartItem.quantity;
     }
-
-    // Shipping Row - Shipping cost
-
-    // Total Row - Total cost
+    return subtotal;
   }
 }
 displayCheckoutItems();
