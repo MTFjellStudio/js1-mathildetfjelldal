@@ -1,7 +1,26 @@
 import { fetchProducts } from "./api.js";
+import { showCartToast } from "./ui.js";
 
 async function displayProduct() {
+  const productStatus = document.querySelector(".product-status");
+
+  if (productStatus) {
+    productStatus.textContent = "Loading product...";
+  }
+
   const products = await fetchProducts();
+
+  if (products.length === 0) {
+    if (productStatus) {
+      productStatus.textContent = "Unable to load product. Please try again.";
+    }
+    return; // Exit the function if no products are loaded
+  }
+
+  if (productStatus) {
+    productStatus.textContent = "";
+  }
+
   console.log(products);
 
   const params = new URLSearchParams(window.location.search);
@@ -178,6 +197,8 @@ async function displayProduct() {
       }
       // Convert the updated array to JSON text and save it under the "cartItems" key.
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      showCartToast();
     });
 
     // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.

@@ -1,4 +1,5 @@
 import { fetchProducts } from "./api.js";
+import { showCartToast } from "./ui.js";
 
 async function displayCategoryProducts() {
   // Loading products BEFORE fetching them from the API
@@ -176,6 +177,7 @@ async function displayCategoryProducts() {
       }
 
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      showCartToast();
     });
   }
 }
