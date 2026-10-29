@@ -163,10 +163,29 @@ async function displayCheckoutItems() {
     const subtotalPrice = document.querySelector(".subtotal-price");
     const shippingPrice = document.querySelector(".shipping-price");
     const totalPrice = document.querySelector(".total-price");
+    const selectExpress = document.querySelector("#express-shipping");
+    const expressShippingCost = 19;
+    const shippingOptions = document.querySelectorAll('input[name="shipping"]');
 
-    shippingPrice.textContent = `0 €`;
-    totalPrice.textContent = `${subtotal} €`;
-    subtotalPrice.textContent = `${subtotal} €`;
+    // Shipping price change at EXPRESS selected
+    let shipping = 0;
+
+    subtotalPrice.textContent = `${subtotal.toFixed(2)} €`;
+    shippingPrice.textContent = `${shipping.toFixed(2)} €`;
+    totalPrice.textContent = `${(subtotal + shipping).toFixed(2)} €`;
+
+    for (const option of shippingOptions) {
+      option.addEventListener("change", () => {
+        if (selectExpress.checked) {
+          shipping = expressShippingCost;
+        } else {
+          shipping = 0;
+        }
+
+        shippingPrice.textContent = `${shipping.toFixed(2)} €`;
+        totalPrice.textContent = `${(subtotal + shipping).toFixed(2)} €`;
+      });
+    }
 
     return subtotal;
   }
