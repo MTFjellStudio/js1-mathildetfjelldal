@@ -1,6 +1,13 @@
 import { fetchProducts } from "./api.js";
 
 async function displayCategoryProducts() {
+  // Loading products BEFORE fetching them from the API
+  const productStatus = document.querySelector(".product-status");
+
+  if (productStatus) {
+    productStatus.textContent = "Loading products...";
+  }
+
   const products = await fetchProducts();
 
   const womenProductGrid = document.querySelector(".women-product-grid");

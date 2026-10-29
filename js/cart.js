@@ -235,6 +235,15 @@ async function displayCart() {
       updateCartCount();
     });
   }
+
+  const checkoutButton = document.querySelector(".go-to-checkout");
+
+  checkoutButton.addEventListener("click", (event) => {
+    if (cartItems.length === 0) {
+      event.preventDefault();
+      alert("Your cart is empty. Add a product before going to checkout.");
+    }
+  });
 }
 
 displayCart();
