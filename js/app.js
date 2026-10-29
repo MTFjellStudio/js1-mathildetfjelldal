@@ -10,7 +10,7 @@ async function displayProducts() {
   console.log(heroPrice, heroLink);
   if (heroPrice && heroLink) {
     const product = products[3]; // I am keeping the fourth product from the API for the hero section, to keep the promotional imagery intact.
-    heroPrice.textContent = `${product.price} NOK`;
+    heroPrice.textContent = `${product.price} €`;
     heroLink.href = `product/index.html?id=${product.id}`;
   }
 
@@ -53,6 +53,53 @@ async function displayProducts() {
     productLink.href = `product/index.html?id=${product.id}`;
   } else {
     console.log("No featured product card on this page.");
+  }
+
+  //The new product grid on the bottom of homepage. Will perhaps shrink it later.
+  const HomeProductGrid = document.querySelector(".home-product-grid");
+  if (HomeProductGrid) {
+    function isCorrectPrice(product) {
+      return product.onSale === true;
+    }
+
+    const homeProducts = products.filter(isCorrectPrice);
+
+    for (const product of homeProducts) {
+      const card = document.createElement("article");
+      card.classList.add("product-card");
+      HomeProductGrid.appendChild(card);
+
+      const cardMedia = document.createElement("div");
+      cardMedia.classList.add("card-media");
+      card.appendChild(cardMedia);
+
+      const link = document.createElement("a");
+      link.href = `product/index.html?id=${product.id}`;
+      cardMedia.appendChild(link);
+
+      const image = document.createElement("img");
+      image.src = product.image.url;
+      image.alt = product.image.alt;
+      link.appendChild(image);
+
+      const cardTitle = document.createElement("div");
+      cardTitle.classList.add("card-title");
+      card.appendChild(cardTitle);
+
+      const title = document.createElement("h3");
+      title.textContent = product.title;
+      cardTitle.appendChild(title);
+
+      const cardFooter = document.createElement("div");
+      cardFooter.classList.add("card-footer");
+      card.appendChild(cardFooter);
+
+      const price = document.createElement("span");
+      price.classList.add("price");
+      price.textContent = `${product.discountedPrice} €`;
+      price.style.color = "var(--color-alert)";
+      cardFooter.appendChild(price);
+    }
   }
 }
 

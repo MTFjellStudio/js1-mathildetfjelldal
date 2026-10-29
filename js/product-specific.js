@@ -44,11 +44,11 @@ async function displayProduct() {
     currentPrice.classList.toggle("sale-price", isOnSale);
 
     if (isOnSale) {
-      originalPrice.textContent = `${product.price} NOK`;
-      currentPrice.textContent = `${product.discountedPrice} NOK`;
+      originalPrice.textContent = `${product.price} €`;
+      currentPrice.textContent = `${product.discountedPrice} €`;
     } else {
       originalPrice.textContent = ""; // Clears the original price if not on sale
-      currentPrice.textContent = `${product.price} NOK`;
+      currentPrice.textContent = `${product.price} €`;
     }
     console.log({
       product,
@@ -211,7 +211,7 @@ async function displayProduct() {
 
       const price = document.createElement("span");
       price.classList.add("price");
-      price.textContent = `${related.price} NOK`;
+      price.textContent = `${related.price} €`;
 
       link.appendChild(image);
       cardMedia.appendChild(link);

@@ -45,7 +45,7 @@ async function displayCategoryProducts() {
 
   const categoryProducts = products.filter(isCorrectGender);
 
-  //Added so that filtering doesnt get mistaken for an error
+  //Added so that filtering doesn't get mistaken for an error
   if (categoryProducts.length === 0) {
     if (productStatus) {
       productStatus.textContent = "No products found in this category.";
@@ -87,7 +87,7 @@ async function displayCategoryProducts() {
 
     const price = document.createElement("span");
     price.classList.add("price");
-    price.textContent = `${product.price} NOK`;
+    price.textContent = `${product.price} €`;
     cardFooter.appendChild(price);
   }
 }
