@@ -2,16 +2,33 @@
 import { fetchProducts } from "./api.js";
 
 async function displayProducts() {
+  const productStatus = document.querySelector(".product-status");
+
+  if (productStatus) {
+    productStatus.textContent = "Loading products...";
+  }
+
   const products = await fetchProducts();
+
+  // Error check
+  if (products.length === 0) {
+    if (productStatus) {
+      productStatus.textContent = "Unable to load products. Please try again.";
+    }
+    return;
+  }
+
+  // Clears the loading message once products are fetched successfully
+  if (productStatus) {
+    productStatus.textContent = "";
+  }
+
   console.log(products);
 
   const heroPrice = document.querySelector(".hero-price-tag");
-  const heroLink = document.querySelector(".hero-media a");
-  console.log(heroPrice, heroLink);
-  if (heroPrice && heroLink) {
+  if (heroPrice) {
     const product = products[3]; // I am keeping the fourth product from the API for the hero section, to keep the promotional imagery intact.
     heroPrice.textContent = `${product.price} €`;
-    heroLink.href = `product/index.html?id=${product.id}`;
   }
 
   // THE .featured-one CARD I SELECTED HERE
