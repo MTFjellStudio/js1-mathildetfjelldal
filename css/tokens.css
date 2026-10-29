@@ -30,7 +30,7 @@
    
    /* Semantic Colors */
    --color-border: #999999;          /* Light borders, dividers */
-   --color-error: #B71C1C;           /* Error states */
+   --color-alert: #B71C1C;           /* Error states */
    --color-success: #388e3c;         /* Success states */
 
 

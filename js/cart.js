@@ -153,6 +153,7 @@ async function displayCart() {
 
       if (product.onSale) {
         cartPrice.textContent = `${product.discountedPrice} €`;
+        cartPrice.style.color = "var(--color-alert)";
       } else {
         cartPrice.textContent = `${product.price} €`;
       }

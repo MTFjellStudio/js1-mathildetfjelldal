@@ -847,13 +847,13 @@
 
 .cart-media {
   display: flex;
-  padding: 16px;
+  padding: 16px 16px 0;
   background-color: #fff;
 }
 
 .cart-media img {
   width: 150px;
-  max-height: 250px;
+  max-height: 135px; /* Crops the empty white at the bottom of the photos */
   object-fit: cover;
   object-position: top; /* This focuses on the top of the image when a square crop. Consider for desktop variant as well? */
   border-radius: var(--radius-md);
