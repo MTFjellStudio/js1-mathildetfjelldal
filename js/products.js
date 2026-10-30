@@ -108,21 +108,24 @@ async function displayCategoryProducts() {
     colorOptions.appendChild(label);
   }
 
-  function getSelectedColors() {
+  function getCheckedColors() {
     return [...document.querySelectorAll('input[name="color"]:checked')].map(
       (checkbox) => checkbox.value,
     );
   }
 
   colorOptions.addEventListener("click", () => {
-    // find which cartItem this button belongs to
-    const selectedColors = getSelectedColors();
+    // When should something happen? Apply filters whenever a color checkbox is clicked
+    applyFilters();
+  });
 
+  function applyFilters() {
+    const checkedColors = getCheckedColors();
     const filteredProducts = categoryProducts.filter((product) => {
-      const matchesColor =
-        selectedColors.length === 0 ||
-        selectedColors.includes(product.baseColor);
-      return matchesColor;
+      const matchesSelectedColor =
+        checkedColors.length === 0 || checkedColors.includes(product.baseColor);
+      const matchesOnSale = !onSaleCheckbox.checked || product.onSale;
+      return matchesSelectedColor && matchesOnSale;
     });
 
     // Clear the product grid and rebuild it with filtered products
@@ -131,7 +134,7 @@ async function displayCategoryProducts() {
       const card = createProductCard(product, "../");
       productGrid.appendChild(card);
     }
-  });
+  }
 
   // Sale true or false via type = checkbox
   const onSaleCheckbox = document.querySelector('input[name="onSale"]');
@@ -143,7 +146,6 @@ async function displayCategoryProducts() {
     for (const input of document.querySelectorAll(".filter-menu input")) {
       input.checked = false;
     }
-    applyFilters();
   });
 }
 
