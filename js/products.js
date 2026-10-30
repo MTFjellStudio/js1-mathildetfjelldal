@@ -220,17 +220,47 @@ async function displayCategoryProducts() {
   }
 
   const colorOptions = document.querySelector("#color-options");
-  const sizeOptions = document.querySelector("#size-options");
-  const priceFilter = document.querySelector("input[name='price']:checked");
-  const onSaleFilter = document.querySelector("input[name='onSale']:checked"); //or if onSale true?
 
-  if (productColor) {
-    
+  for (const productColor of productColors) {
+    const label = document.createElement("label");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = "color";
+    checkbox.value = productColor;
+
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(productColor));
+    colorOptions.appendChild(label);
   }
 
+  function getSelectedColors() {
+    return [...document.querySelectorAll('input[name="color"]:checked')].map(
+      (checkbox) => checkbox.value,
+    );
+  }
+  const selectedColors = getSelectedColors();
 
+  const matchesColor =
+    selectedColors.length === 0 || selectedColors.includes(product.baseColor);
 
-  
+  // Size options via checkboxes
+  const sizeOptions = document.querySelector("#size-options");
+
+  // Sale true or false via type = checkbox
+  const onSaleCheckbox = document.querySelector('input[name="onSale"]');
+  const onSaleChecked = onSaleCheckbox.checked;
+  const matchesSale = !onSaleChecked || product.onSale === true;
+
+  if (onSaleChecked) {
+    const filteredProducts = categoryProducts.filter((product) => {
+      const matchesSale = !onSaleCheckbox.checked || product.onSale === true;
+      return matchesSale;
+    });
+  }
+
+  // Clear All filters functionality
+}
 
 /* ========================================
    INITIALIZE
