@@ -33,32 +33,25 @@ async function displayProducts() {
   /* ========================================
      UPDATE HERO PRODUCT
      ======================================== */
-  console.log(products);
-
   /* ========================================
      UPDATE FEATURED PRODUCTS
      ======================================== */
   // THE .featured-one CARD I SELECTED HERE
   const featuredOneProduct = document.querySelector(".featured-one");
-  console.log(featuredOneProduct);
 
+  //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
   if (featuredOneProduct) {
     const card = createProductCard(products[1]);
     card.classList.add("featured-one");
     featuredOneProduct.replaceWith(card);
-  } else {
-    console.log("No featured product card on this page.");
-  } //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
+  }
 
   const featuredTwoProduct = document.querySelector(".featured-two");
-  console.log(featuredTwoProduct);
 
   if (featuredTwoProduct) {
     const card = createProductCard(products[4]);
     card.classList.add("featured-two");
     featuredTwoProduct.replaceWith(card);
-  } else {
-    console.log("No featured product card on this page.");
   }
 
   /* ========================================

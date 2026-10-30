@@ -26,8 +26,6 @@ async function displayCheckoutItems() {
     productStatus.textContent = "";
   }
 
-  console.log(products);
-
   const summaryItems = document.querySelector(".summary-items");
 
   if (!summaryItems) {
@@ -35,8 +33,6 @@ async function displayCheckoutItems() {
   }
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
-
-  console.log(cartItems);
 
   /* ========================================
      CART COUNT
@@ -223,7 +219,7 @@ async function displayCheckoutItems() {
     return subtotal;
   }
 
-  console.log(summaryCost());
+  summaryCost();
 
   /* ========================================
      PAYMENT AND FORM VALIDATION

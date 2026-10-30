@@ -27,8 +27,6 @@ async function displayCart() {
     productStatus.textContent = "";
   }
 
-  console.log(products);
-
   const cartList = document.querySelector(".cart-list");
 
   if (!cartList) {
@@ -37,7 +35,13 @@ async function displayCart() {
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
 
-  console.log(cartItems);
+  if (cartItems.length === 0) {
+    if (productStatus) {
+      productStatus.textContent =
+        "Your cart is empty. Add a product to proceed to checkout.";
+    }
+    return;
+  }
 
   /* ========================================
      CART COUNT AND ORDER TOTALS
@@ -246,8 +250,6 @@ async function displayCart() {
 
       // remove this cartTile from the page
       cartTile.remove();
-
-      console.log(cartItemIndex);
     });
 
     increaseButton.addEventListener("click", () => {

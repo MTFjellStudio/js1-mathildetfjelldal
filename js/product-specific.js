@@ -27,8 +27,6 @@ async function displayProduct() {
     productStatus.textContent = "";
   }
 
-  console.log(products);
-
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
 
@@ -45,11 +43,6 @@ async function displayProduct() {
       ".product-gallery .gallery-main img",
     );
     const productDescription = productContainer.querySelector(".product-intro");
-    console.log({
-      productTitle,
-      productImage,
-      productDescription,
-    });
 
     function isCorrectProduct(product) {
       return product.id === productId;
@@ -81,12 +74,6 @@ async function displayProduct() {
       originalPrice.textContent = ""; // Clears the original price if not on sale
       currentPrice.textContent = `${product.price} €`;
     }
-    console.log({
-      product,
-      isOnSale,
-      originalPrice,
-      currentPrice,
-    });
 
     /* ========================================
        DISPLAY COLOR AND SIZE OPTIONS
@@ -176,12 +163,6 @@ async function displayProduct() {
         alert("Please select a size");
         return;
       }
-
-      console.log({
-        product: product,
-        size: selectedSize.value,
-        quantity: Number(quantityInput.value),
-      });
 
       //create cartItem DATA object
       //        ↓

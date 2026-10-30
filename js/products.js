@@ -69,9 +69,12 @@ async function displayCategoryProducts() {
   /* ========================================
      BUILD PRODUCT CARDS
      ======================================== */
-  for (const product of categoryProducts) {
-    console.log(product);
+  const productCount = document.querySelector(".product-count");
+  if (productCount) {
+    productCount.textContent = `${categoryProducts.length} items`;
+  }
 
+  for (const product of categoryProducts) {
     const card = createProductCard(product, "../");
     productGrid.appendChild(card);
   }
@@ -110,24 +113,38 @@ async function displayCategoryProducts() {
       (checkbox) => checkbox.value,
     );
   }
-  const selectedColors = getSelectedColors();
 
-  const matchesColor =
-    selectedColors.length === 0 || selectedColors.includes(product.baseColor);
+  colorOptions.addEventListener("click", () => {
+    // find which cartItem this button belongs to
+    const selectedColors = getSelectedColors();
+
+    const filteredProducts = categoryProducts.filter((product) => {
+      const matchesColor =
+        selectedColors.length === 0 ||
+        selectedColors.includes(product.baseColor);
+      return matchesColor;
+    });
+
+    // Clear the product grid and rebuild it with filtered products
+    productGrid.innerHTML = "";
+    for (const product of filteredProducts) {
+      const card = createProductCard(product, "../");
+      productGrid.appendChild(card);
+    }
+  });
 
   // Sale true or false via type = checkbox
   const onSaleCheckbox = document.querySelector('input[name="onSale"]');
-  const onSaleChecked = onSaleCheckbox.checked;
-  const matchesSale = !onSaleChecked || product.onSale === true;
-
-  if (onSaleChecked) {
-    const filteredProducts = categoryProducts.filter((product) => {
-      const matchesSale = !onSaleCheckbox.checked || product.onSale === true;
-      return matchesSale;
-    });
-  }
+  onSaleCheckbox.addEventListener("change", applyFilters);
 
   // Clear All filters functionality
+
+  document.querySelector(".filter-clear").addEventListener("click", () => {
+    for (const input of document.querySelectorAll(".filter-menu input")) {
+      input.checked = false;
+    }
+    applyFilters();
+  });
 }
 
 /* ========================================
