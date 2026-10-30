@@ -1,6 +1,12 @@
+/* ========================================
+   IMPORTS
+   ======================================== */
 import { fetchProducts } from "./api.js";
 import { showCartToast } from "./ui.js";
 
+/* ========================================
+   DISPLAY PRODUCT DETAILS
+   ======================================== */
 async function displayProduct() {
   const productStatus = document.querySelector(".product-status");
 
@@ -31,6 +37,9 @@ async function displayProduct() {
   );
 
   if (productContainer) {
+    /* ========================================
+       FIND AND DISPLAY SELECTED PRODUCT
+       ======================================== */
     const productTitle = productContainer.querySelector(".product-info h1");
     const productImage = productContainer.querySelector(
       ".product-gallery .gallery-main img",
@@ -56,6 +65,9 @@ async function displayProduct() {
     productImage.alt = product.image.alt;
     productDescription.textContent = product.description;
 
+    /* ========================================
+       DISPLAY PRODUCT PRICE
+       ======================================== */
     //The price onSale and full price
     const isOnSale = product.onSale;
     const originalPrice = productContainer.querySelector(".original-price");
@@ -76,6 +88,9 @@ async function displayProduct() {
       currentPrice,
     });
 
+    /* ========================================
+       DISPLAY COLOR AND SIZE OPTIONS
+       ======================================== */
     //The color picker on the product page
     const productColor = product.baseColor;
 
@@ -116,6 +131,9 @@ async function displayProduct() {
       sizeOptions.appendChild(sizeOption);
     }
 
+    /* ========================================
+       QUANTITY AND ADD TO CART
+       ======================================== */
     //Add to cart functionality will be implemented here
     //API finds current product - Done
     //Define JS naming
@@ -201,6 +219,9 @@ async function displayProduct() {
       showCartToast();
     });
 
+    /* ========================================
+       RELATED PRODUCTS
+       ======================================== */
     // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.
     const relatedGrid = document.querySelector(".related-products-grid");
     const relatedProducts = products
@@ -242,6 +263,9 @@ async function displayProduct() {
       relatedGrid.appendChild(card);
     }
 
+    /* ========================================
+       UPDATE CATEGORY BREADCRUMB
+       ======================================== */
     //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
     const categoryBreadcrumb = productContainer.querySelector(
       '.breadcrumbs a[href="../category/products-women.html"]',
@@ -258,4 +282,7 @@ async function displayProduct() {
   }
 }
 
+/* ========================================
+   INITIALIZE
+   ======================================== */
 displayProduct();

@@ -1,5 +1,11 @@
+/* ========================================
+   IMPORTS
+   ======================================== */
 import { fetchProducts } from "./api.js";
 
+/* ========================================
+   DISPLAY CHECKOUT ITEMS
+   ======================================== */
 async function displayCheckoutItems() {
   const productStatus = document.querySelector(".product-status");
 
@@ -32,6 +38,9 @@ async function displayCheckoutItems() {
 
   console.log(cartItems);
 
+  /* ========================================
+     CART COUNT
+     ======================================== */
   const cartItemCount = document.querySelector(".cart-item-count");
 
   function getCartCount() {
@@ -54,6 +63,9 @@ async function displayCheckoutItems() {
     }
   }
 
+  /* ========================================
+     BUILD CHECKOUT ITEMS
+     ======================================== */
   for (const cartItem of cartItems) {
     const product = products.find((p) => p.id === cartItem.productId);
     if (!product) {
@@ -157,6 +169,9 @@ async function displayCheckoutItems() {
     }
   }
 
+  /* ========================================
+     ORDER TOTALS AND SHIPPING
+     ======================================== */
   function summaryCost() {
     let subtotal = 0;
 
@@ -210,6 +225,9 @@ async function displayCheckoutItems() {
 
   console.log(summaryCost());
 
+  /* ========================================
+     PAYMENT AND FORM VALIDATION
+     ======================================== */
   const payNowButton = document.querySelector("#pay-now-button");
 
   payNowButton.addEventListener("click", (event) => {
@@ -230,4 +248,8 @@ async function displayCheckoutItems() {
     window.location.href = "confirmation/index.html";
   });
 }
+
+/* ========================================
+   INITIALIZE
+   ======================================== */
 displayCheckoutItems();

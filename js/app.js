@@ -1,6 +1,12 @@
+/* ========================================
+   IMPORTS
+   ======================================== */
 // Import the product-fetching function from api.js.
 import { fetchProducts } from "./api.js";
 
+/* ========================================
+   DISPLAY HOMEPAGE PRODUCTS
+   ======================================== */
 async function displayProducts() {
   const productStatus = document.querySelector(".product-status");
 
@@ -23,6 +29,9 @@ async function displayProducts() {
     productStatus.textContent = "";
   }
 
+  /* ========================================
+     UPDATE HERO PRODUCT
+     ======================================== */
   console.log(products);
 
   const heroPrice = document.querySelector(".hero-price-tag");
@@ -31,6 +40,9 @@ async function displayProducts() {
     heroPrice.textContent = `${product.price} €`;
   }
 
+  /* ========================================
+     UPDATE FEATURED PRODUCTS
+     ======================================== */
   // THE .featured-one CARD I SELECTED HERE
   const featuredOneProduct = document.querySelector(".featured-one");
   console.log(featuredOneProduct);
@@ -72,6 +84,9 @@ async function displayProducts() {
     console.log("No featured product card on this page.");
   }
 
+  /* ========================================
+     DISPLAY SALE PRODUCTS
+     ======================================== */
   //The new product grid on the bottom of homepage. Will perhaps shrink it later.
   const HomeProductGrid = document.querySelector(".home-product-grid");
   if (HomeProductGrid) {
@@ -120,5 +135,8 @@ async function displayProducts() {
   }
 }
 
+/* ========================================
+   INITIALIZE
+   ======================================== */
 // Run the function.
 displayProducts();

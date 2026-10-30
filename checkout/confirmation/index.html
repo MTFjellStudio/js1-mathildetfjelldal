@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../../css/layout.css" />
     <link rel="stylesheet" href="../../css/components.css" />
     <link rel="stylesheet" href="../../css/utilities.css" />
+    <script type="module" src="../../js/ui.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -140,7 +141,7 @@
             aria-label="View shopping cart"
           >
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge" aria-hidden="true"></span>
+            <span class="cart-badge" aria-hidden="true" hidden></span>
           </a>
 
           <label for="menu-toggle" class="menu-toggle-label icon-link">
@@ -233,10 +234,7 @@
             <i class="fa-solid fa-check"></i>
           </div>
           <h1>Payment Successful!</h1>
-          <p>
-            Order #12345 has been confirmed.<br />
-            Your order is on its way and you will receive an email shortly.
-          </p>
+          <p>Your order is on its way.</p>
           <a href="../../index.html" class="btn">Continue Shopping</a>
         </section>
 
@@ -309,8 +307,9 @@
           </form>
 
           <p class="legal-text">
-            By joining you agree to our             <a href="../../terms/index.html">Terms</a> and
-                        <a href="../../privacy/index.html">Privacy Policy</a>.
+            By joining you agree to our
+            <a href="../../terms/index.html">Terms</a> and
+            <a href="../../privacy/index.html">Privacy Policy</a>.
           </p>
         </div>
 
@@ -354,7 +353,7 @@
           <ul>
             <li><a href="#">All Rights Reserved</a></li>
             <li><a href="../../terms/index.html">Terms of Sale</a></li>
-                        <li><a href="../../privacy/index.html">Privacy Policy</a></li>
+            <li><a href="../../privacy/index.html">Privacy Policy</a></li>
             <li><a href="#">Responsible Supply Chain Statement</a></li>
             <li><a href="#">Cookie Preferences</a></li>
           </ul>

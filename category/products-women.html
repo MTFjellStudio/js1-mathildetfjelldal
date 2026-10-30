@@ -133,7 +133,7 @@
             aria-label="View shopping cart"
           >
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge" aria-hidden="true"></span>
+            <span class="cart-badge" aria-hidden="true" hidden></span>
           </a>
 
           <label for="menu-toggle" class="menu-toggle-label icon-link">
@@ -205,13 +205,53 @@
               <button class="tool-btn dropdown-trigger">
                 FILTER <i class="fa-solid fa-bars-staggered"></i>
               </button>
-              <ul class="dropdown-menu filter-menu">
-                <li><a href="#">All</a></li>
-                <li><a href="#">On Sale</a></li>
-                <li><a href="#">Color</a></li>
-                <li><a href="#">Price</a></li>
-                <li><a href="#">Size</a></li>
-              </ul>
+              <div class="dropdown-menu filter-menu">
+                <button type="button" class="filter-clear">
+                  Clear filters
+                </button>
+
+                <fieldset class="filter-group">
+                  <legend>Deals</legend>
+                  <label>
+                    <input type="checkbox" name="onSale" value="true" />
+                    On sale
+                  </label>
+                </fieldset>
+
+                <fieldset class="filter-group">
+                  <legend>Color</legend>
+                  <div id="color-options">
+                    <!-- JS fills in one checkbox per color -->
+                  </div>
+                </fieldset>
+
+                <fieldset class="filter-group">
+                  <legend>Size</legend>
+                  <div id="size-options">
+                    <!-- JS fills in one checkbox per size -->
+                  </div>
+                </fieldset>
+
+                <fieldset class="filter-group">
+                  <legend>Price</legend>
+                  <label
+                    ><input type="radio" name="price" value="" checked />
+                    Any</label
+                  >
+                  <label
+                    ><input type="radio" name="price" value="0-50" /> Under 50
+                    €</label
+                  >
+                  <label
+                    ><input type="radio" name="price" value="50-100" /> 50–100
+                    €</label
+                  >
+                  <label
+                    ><input type="radio" name="price" value="100-" /> Over 100
+                    €</label
+                  >
+                </fieldset>
+              </div>
             </div>
             <div class="dropdown-item sort-dropdown">
               <button class="tool-btn dropdown-trigger">
@@ -258,8 +298,9 @@
           </form>
 
           <p class="legal-text">
-            By joining you agree to our             <a href="../terms/index.html">Terms</a> and
-                        <a href="../privacy/index.html">Privacy Policy</a>.
+            By joining you agree to our
+            <a href="../terms/index.html">Terms</a> and
+            <a href="../privacy/index.html">Privacy Policy</a>.
           </p>
         </div>
 
@@ -303,7 +344,7 @@
           <ul>
             <li><a href="#">All Rights Reserved</a></li>
             <li><a href="../terms/index.html">Terms of Sale</a></li>
-                        <li><a href="../privacy/index.html">Privacy Policy</a></li>
+            <li><a href="../privacy/index.html">Privacy Policy</a></li>
             <li><a href="#">Responsible Supply Chain Statement</a></li>
             <li><a href="#">Cookie Preferences</a></li>
           </ul>

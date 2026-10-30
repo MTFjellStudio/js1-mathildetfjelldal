@@ -1,6 +1,12 @@
+/* ========================================
+   API CONFIGURATION
+   ======================================== */
 // Store the Rainy Days API URL.
 const API_URL = "https://v2.api.noroff.dev/rainy-days";
 
+/* ========================================
+   FETCH PRODUCTS
+   ======================================== */
 export async function fetchProducts() {
   // 1. fetches the products
   try {

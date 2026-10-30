@@ -1,10 +1,19 @@
+/* ========================================
+   IMPORTS
+   ======================================== */
 import { fetchProducts } from "./api.js";
 import { showCartToast } from "./ui.js";
 
+/* ========================================
+   DISPLAY CATEGORY PRODUCTS
+   ======================================== */
 async function displayCategoryProducts() {
   // Loading products BEFORE fetching them from the API
   const productStatus = document.querySelector(".product-status");
 
+  /* ========================================
+     SELECT CATEGORY GRID
+     ======================================== */
   const womenProductGrid = document.querySelector(".women-product-grid");
   const menProductGrid = document.querySelector(".men-product-grid");
 
@@ -25,6 +34,9 @@ async function displayCategoryProducts() {
     productStatus.textContent = "Loading products...";
   }
 
+  /* ========================================
+     FETCH AND FILTER PRODUCTS
+     ======================================== */
   const products = await fetchProducts();
 
   // Error check
@@ -54,6 +66,9 @@ async function displayCategoryProducts() {
     return;
   }
 
+  /* ========================================
+     BUILD PRODUCT CARDS
+     ======================================== */
   for (const product of categoryProducts) {
     console.log(product);
 
@@ -86,6 +101,9 @@ async function displayCategoryProducts() {
     cardFooter.classList.add("card-footer");
     card.appendChild(cardFooter);
 
+    /* ========================================
+       DISPLAY PRODUCT PRICE
+       ======================================== */
     const price = document.createElement("span");
     price.classList.add("price");
     const isOnSale = product.onSale === true;
@@ -115,6 +133,9 @@ async function displayCategoryProducts() {
     cardBase.classList.add("card-base");
     card.appendChild(cardBase);
 
+    /* ========================================
+       DISPLAY SIZE OPTIONS
+       ======================================== */
     const cardSizes = document.createElement("div");
     cardSizes.classList.add("card-sizes");
 
@@ -139,6 +160,9 @@ async function displayCategoryProducts() {
 
     cardBase.appendChild(cardSizes);
 
+    /* ========================================
+       ADD PRODUCT TO CART
+       ======================================== */
     // I have copied from add-to-cart functionality on the product-specific page for handling size selection and cart updates.
     cardButton.addEventListener("click", () => {
       const selectedSize = card.querySelector(
@@ -180,6 +204,35 @@ async function displayCategoryProducts() {
       showCartToast();
     });
   }
-}
 
+  /* ========================================
+     IDENTIFY AND FILTER CATEGORY PRODUCTS
+     ======================================== */
+
+  const productColors = [];
+
+  for (const product of categoryProducts) {
+    const productColor = product.baseColor;
+
+    if (!productColors.includes(productColor)) {
+      productColors.push(productColor);
+    }
+  }
+
+  const colorOptions = document.querySelector("#color-options");
+  const sizeOptions = document.querySelector("#size-options");
+  const priceFilter = document.querySelector("input[name='price']:checked");
+  const onSaleFilter = document.querySelector("input[name='onSale']:checked"); //or if onSale true?
+
+  if (productColor) {
+    
+  }
+
+
+
+  
+
+/* ========================================
+   INITIALIZE
+   ======================================== */
 displayCategoryProducts();

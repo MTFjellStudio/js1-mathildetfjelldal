@@ -1,5 +1,12 @@
+/* ========================================
+   IMPORTS
+   ======================================== */
 import { fetchProducts } from "./api.js";
+import { updateCartBadge } from "./ui.js";
 
+/* ========================================
+   DISPLAY CART
+   ======================================== */
 async function displayCart() {
   const productStatus = document.querySelector(".product-status");
 
@@ -32,6 +39,9 @@ async function displayCart() {
 
   console.log(cartItems);
 
+  /* ========================================
+     CART COUNT AND ORDER TOTALS
+     ======================================== */
   const cartItemCount = document.querySelector(".cart-item-count");
   function getCartCount() {
     let total = 0;
@@ -86,8 +96,12 @@ async function displayCart() {
     }
 
     summaryCost();
+    updateCartBadge();
   }
 
+  /* ========================================
+     BUILD CART ITEMS
+     ======================================== */
   for (const cartItem of cartItems) {
     const product = products.find((p) => p.id === cartItem.productId);
     if (!product) {
@@ -215,6 +229,9 @@ async function displayCart() {
       removeButton.type = "button";
     }
 
+    /* ========================================
+       CART ITEM CONTROLS
+       ======================================== */
     removeButton.addEventListener("click", () => {
       // find which cartItem this button belongs to
       const cartItemIndex = cartItems.indexOf(cartItem);
@@ -254,6 +271,9 @@ async function displayCart() {
     });
   }
 
+  /* ========================================
+     CHECKOUT NAVIGATION
+     ======================================== */
   const checkoutButton = document.querySelector(".go-to-checkout");
 
   checkoutButton.addEventListener("click", (event) => {
@@ -264,4 +284,7 @@ async function displayCart() {
   });
 }
 
+/* ========================================
+   INITIALIZE
+   ======================================== */
 displayCart();
