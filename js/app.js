@@ -35,12 +35,6 @@ async function displayProducts() {
      ======================================== */
   console.log(products);
 
-  const heroPrice = document.querySelector(".hero-price-tag");
-  if (heroPrice) {
-    const product = products[3]; // I am keeping the fourth product from the API for the hero section, to keep the promotional imagery intact.
-    heroPrice.textContent = `${product.price} €`;
-  }
-
   /* ========================================
      UPDATE FEATURED PRODUCTS
      ======================================== */

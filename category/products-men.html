@@ -71,48 +71,9 @@
 
         <nav class="main-nav" aria-label="Desktop navigation">
           <ul class="nav-list">
-            <li class="dropdown-item">
-              <a
-                href="../category/products-women.html"
-                class="dropdown-trigger"
-              >
-                Women <i class="fa-solid fa-chevron-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../category/products-women.html">All Jackets</a>
-                </li>
-                <li><a href="../category/products-women.html">Hiking</a></li>
-                <li>
-                  <a href="../category/products-women.html">Activewear</a>
-                </li>
-                <li><a href="../category/products-women.html">Everyday</a></li>
-                <li><a href="../category/products-women.html">Skiing</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown-item">
-              <a href="../category/products-men.html" class="dropdown-trigger">
-                Men <i class="fa-solid fa-chevron-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="../category/products-men.html">All Jackets</a></li>
-                <li><a href="../category/products-men.html">Hiking</a></li>
-                <li><a href="../category/products-men.html">Activewear</a></li>
-                <li><a href="../category/products-men.html">Everyday</a></li>
-                <li><a href="../category/products-men.html">Skiing</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown-item">
-              <a href="../about/index.html" class="dropdown-trigger">
-                About <i class="fa-solid fa-chevron-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="../about/index.html">About Us</a></li>
-                <li><a href="../about/index.html">Contact Us</a></li>
-              </ul>
-            </li>
+            <li><a href="../category/products-women.html" class="nav-btn">Women</a></li>
+            <li><a href="../category/products-men.html" class="nav-btn">Men</a></li>
+            <li><a href="../about/index.html" class="nav-btn">About</a></li>
           </ul>
         </nav>
 
@@ -145,45 +106,9 @@
       <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
       <nav class="main-nav-mobile" aria-label="Mobile navigation">
         <ul class="nav-list-mobile">
-          <li>
-            <details class="mobile-dropdown">
-              <summary>Women <i class="fa-solid fa-chevron-down"></i></summary>
-              <ul class="mobile-sub-menu">
-                <li>
-                  <a href="../category/products-women.html">All Jackets</a>
-                </li>
-                <li><a href="../category/products-women.html">Hiking</a></li>
-                <li>
-                  <a href="../category/products-women.html">Activewear</a>
-                </li>
-                <li><a href="../category/products-women.html">Everyday</a></li>
-                <li><a href="../category/products-women.html">Skiing</a></li>
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details class="mobile-dropdown">
-              <summary>Men <i class="fa-solid fa-chevron-down"></i></summary>
-              <ul class="mobile-sub-menu">
-                <li><a href="../category/products-men.html">All Jackets</a></li>
-                <li><a href="../category/products-men.html">Hiking</a></li>
-                <li><a href="../category/products-men.html">Activewear</a></li>
-                <li><a href="../category/products-men.html">Everyday</a></li>
-                <li><a href="../category/products-men.html">Skiing</a></li>
-              </ul>
-            </details>
-          </li>
-
-          <li>
-            <details class="mobile-dropdown">
-              <summary>About <i class="fa-solid fa-chevron-down"></i></summary>
-              <ul class="mobile-sub-menu">
-                <li><a href="../about/index.html">About Us</a></li>
-                <li><a href="../about/index.html">Contact Us</a></li>
-              </ul>
-            </details>
-          </li>
+          <li><a href="../category/products-women.html" class="nav-btn">Women</a></li>
+          <li><a href="../category/products-men.html" class="nav-btn">Men</a></li>
+          <li><a href="../about/index.html" class="nav-btn">About</a></li>
         </ul>
       </nav>
     </header>
@@ -203,13 +128,26 @@
               <button class="tool-btn dropdown-trigger">
                 FILTER <i class="fa-solid fa-bars-staggered"></i>
               </button>
-              <ul class="dropdown-menu filter-menu">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Hiking</a></li>
-                <li><a href="#">Activewear</a></li>
-                <li><a href="#">Everyday</a></li>
-                <li><a href="#">Skiing</a></li>
-              </ul>
+              <div class="dropdown-menu filter-menu">
+                <button type="button" class="filter-clear">
+                  Clear filters
+                </button>
+
+                <fieldset class="filter-group">
+                  <legend>Deals</legend>
+                  <label>
+                    <input type="checkbox" name="onSale" value="true" />
+                    On sale
+                  </label>
+                </fieldset>
+
+                <fieldset class="filter-group">
+                  <legend>Color</legend>
+                  <div id="color-options">
+                    <!-- JS fills in one checkbox per color -->
+                  </div>
+                </fieldset>
+              </div>
             </div>
             <div class="dropdown-item sort-dropdown">
               <button class="tool-btn dropdown-trigger">
@@ -256,8 +194,9 @@
           </form>
 
           <p class="legal-text">
-            By joining you agree to our             <a href="../terms/index.html">Terms</a> and
-                        <a href="../privacy/index.html">Privacy Policy</a>.
+            By joining you agree to our
+            <a href="../terms/index.html">Terms</a> and
+            <a href="../privacy/index.html">Privacy Policy</a>.
           </p>
         </div>
 
@@ -301,7 +240,7 @@
           <ul>
             <li><a href="#">All Rights Reserved</a></li>
             <li><a href="../terms/index.html">Terms of Sale</a></li>
-                        <li><a href="../privacy/index.html">Privacy Policy</a></li>
+            <li><a href="../privacy/index.html">Privacy Policy</a></li>
             <li><a href="#">Responsible Supply Chain Statement</a></li>
             <li><a href="#">Cookie Preferences</a></li>
           </ul>

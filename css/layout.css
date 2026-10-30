@@ -327,11 +327,43 @@ header {
   .nav-list a {
     font-size: var(--font-size-md);
   }
+
+  .nav-list .nav-btn {
+    padding: 16px 28px;
+    background-color: var(--color-white);
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+  }
+
+  .nav-list .nav-btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
 }
 
 /* ========================================
    MOBILE HAMBURGER menu
    ======================================== */
+
+.nav-list-mobile {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list-mobile .nav-btn {
+  display: block;
+  padding: 10px 0;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  font-size: var(--font-size-md);
+  font-weight: 500;
+}
+
+.nav-list-mobile .nav-btn:hover {
+  color: var(--color-secondary-accent);
+}
 
 /* Remove default triangle marker from <details> */
 details > summary {
@@ -354,20 +386,6 @@ details > summary::-webkit-details-marker {
 details[open] summary i {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
-}
-
-/* Style the sub-menu links */
-.mobile-sub-menu {
-  padding-left: 20px; /* Indent sub-items */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.mobile-sub-menu a {
-  font-size: 0.95rem; /* Slightly smaller than main links */
-  opacity: 0.9;
 }
 
 /* ========================================
@@ -429,20 +447,6 @@ details[open] summary i {
   display: block;
 }
 
-/* Price Tag (Mobile Only? Consider price tag in bottom right corner on desktop, or even same placement on desktop as mobile.) */
-.hero-price-tag {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: var(
-    --color-secondary
-  ); /* Sage green. Check if darker color needed.--color-tertiary? */
-  color: var(--color-white);
-  padding: 16px 16px;
-  font-weight: bold;
-  z-index: 2;
-}
-
 .hero-text-link {
   text-decoration: none; /* Removes the line */
   color: inherit;
@@ -465,10 +469,6 @@ details[open] summary i {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     aspect-ratio: auto; /* Reset aspect ratio */
-  }
-
-  .hero-price-tag {
-    display: none; /* Hide price on desktop */
   }
 
   /* --- THE TEXT (Overlays the grid) */
