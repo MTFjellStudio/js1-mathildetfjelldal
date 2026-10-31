@@ -901,6 +901,10 @@ footer {
   scroll-snap-align: center;
   aspect-ratio: 3/4;
   object-fit: contain;
+  padding: var(--space-lg);
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .price-large .sale-price {
@@ -960,12 +964,19 @@ footer {
   .gallery-main {
     height: 100%;
     aspect-ratio: auto;
-    background-color: var(--color-white);
+    background-color: #fff;
   }
 
   .gallery-main img {
     height: 100%;
     object-fit: contain;
+    padding: var(--space-xl);
+  }
+
+  /* Tight line-height so the title's top edge lines up with the top of the image frame. */
+  .product-info h1 {
+    margin-top: 0;
+    line-height: 1.1;
   }
 
   .product-bottom-section {
