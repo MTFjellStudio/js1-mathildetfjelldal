@@ -17,7 +17,6 @@ updateCartBadge();
 /* ========================================
    PRODUCT CARD
    ======================================== */
-// pathToRoot is "" on the homepage and "../" on pages inside a subfolder.
 export function createProductCard(product, pathToRoot = "") {
   const card = document.createElement("article");
   card.classList.add("product-card");
@@ -74,7 +73,6 @@ export function createProductCard(product, pathToRoot = "") {
   cardButton.appendChild(cartIcon);
   cardFooter.appendChild(cardButton);
 
-  //Made a 4th row for the size input selections
   const cardBase = document.createElement("div");
   cardBase.classList.add("card-base");
   card.appendChild(cardBase);
@@ -109,7 +107,6 @@ export function createProductCard(product, pathToRoot = "") {
   /* ========================================
      ADD PRODUCT TO CART
      ======================================== */
-  // I have copied from add-to-cart functionality on the product-specific page for handling size selection and cart updates.
   cardButton.addEventListener("click", () => {
     const selectedSize = card.querySelector(
       `input[name="size-${product.id}"]:checked`,

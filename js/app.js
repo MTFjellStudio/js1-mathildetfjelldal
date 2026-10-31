@@ -1,7 +1,6 @@
 /* ========================================
    IMPORTS
    ======================================== */
-// Import the product-fetching function from api.js.
 import { fetchProducts } from "./api.js";
 import { createProductCard } from "./ui.js";
 
@@ -17,7 +16,6 @@ async function displayProducts() {
 
   const products = await fetchProducts();
 
-  // Error check
   if (products.length === 0) {
     if (productStatus) {
       productStatus.textContent = "Unable to load products. Please try again.";
@@ -31,15 +29,10 @@ async function displayProducts() {
   }
 
   /* ========================================
-     UPDATE HERO PRODUCT
-     ======================================== */
-  /* ========================================
      UPDATE FEATURED PRODUCTS
      ======================================== */
-  // THE .featured-one CARD I SELECTED HERE
   const featuredOneProduct = document.querySelector(".featured-one");
 
-  //A suggestion that was made to prevents errors from trying to access the card’s content on pages where that card doesn’t exist.
   if (featuredOneProduct) {
     const card = createProductCard(products[1]);
     card.classList.add("featured-one");
@@ -57,7 +50,6 @@ async function displayProducts() {
   /* ========================================
      DISPLAY SALE PRODUCTS
      ======================================== */
-  //The new product grid on the bottom of homepage. Will perhaps shrink it later.
   const HomeProductGrid = document.querySelector(".home-product-grid");
   if (HomeProductGrid) {
     function isCorrectPrice(product) {
@@ -76,5 +68,4 @@ async function displayProducts() {
 /* ========================================
    INITIALIZE
    ======================================== */
-// Run the function.
 displayProducts();

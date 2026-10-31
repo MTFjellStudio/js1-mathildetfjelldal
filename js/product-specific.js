@@ -20,7 +20,7 @@ async function displayProduct() {
     if (productStatus) {
       productStatus.textContent = "Unable to load product. Please try again.";
     }
-    return; // Exit the function if no products are loaded
+    return;
   }
 
   if (productStatus) {
@@ -51,7 +51,7 @@ async function displayProduct() {
     if (!product) {
       productTitle.textContent = "Product not found";
       return;
-    } //This is a guard so a bad or missing id doesn't crash the page.
+    }
 
     productTitle.textContent = product.title;
     productImage.src = product.image.url;
@@ -61,7 +61,6 @@ async function displayProduct() {
     /* ========================================
        DISPLAY PRODUCT PRICE
        ======================================== */
-    //The price onSale and full price
     const isOnSale = product.onSale;
     const originalPrice = productContainer.querySelector(".original-price");
     const currentPrice = productContainer.querySelector(".current-price");
@@ -71,14 +70,13 @@ async function displayProduct() {
       originalPrice.textContent = `${product.price} €`;
       currentPrice.textContent = `${product.discountedPrice} €`;
     } else {
-      originalPrice.textContent = ""; // Clears the original price if not on sale
+      originalPrice.textContent = "";
       currentPrice.textContent = `${product.price} €`;
     }
 
     /* ========================================
        DISPLAY COLOR AND SIZE OPTIONS
        ======================================== */
-    //The color picker on the product page
     const productColor = product.baseColor;
 
     const colorOptions = productContainer.querySelector(".color-options");
@@ -94,7 +92,6 @@ async function displayProduct() {
     colorOption.style.backgroundColor = productColor;
     colorText.textContent = productColor;
 
-    // Product sizes on the product page
     const productSizes = product.sizes;
     const sizeOptions = productContainer.querySelector(".size-options");
     sizeOptions.innerHTML = ""; // Removes the hardcoded sizes from the HTML
@@ -121,12 +118,8 @@ async function displayProduct() {
     /* ========================================
        QUANTITY AND ADD TO CART
        ======================================== */
-    //Add to cart functionality will be implemented here
-    //API finds current product - Done
-    //Define JS naming
     const addToCartButton = productContainer.querySelector(".add-to-cart");
 
-    //user selects QUANTITY - User form choice.
     const quantityInput = productContainer.querySelector(
       'input[name="quantity"]',
     );
@@ -150,11 +143,9 @@ async function displayProduct() {
       quantityInput.value = current + 1;
     });
 
-    // Add to cart click - Removed the additional event listener and moved quantity further up.
     addToCartButton.addEventListener("click", (event) => {
       event.preventDefault();
 
-      //user selects SIZE - User form choice.
       const selectedSize = productContainer.querySelector(
         'input[name="size"]:checked',
       );
@@ -164,17 +155,14 @@ async function displayProduct() {
         return;
       }
 
-      //create cartItem DATA object
-      //        ↓
       const cartItem = {
         productId: product.id,
         size: selectedSize.value,
         quantity: Number(quantityInput.value),
       };
 
-      // Read the saved cart from localStorage and parse it into an array; use an empty array if none exists yet.
       const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
-      // Add the newly created item to the cart array.
+
       if (
         cartItems.some(
           (item) =>
@@ -182,8 +170,7 @@ async function displayProduct() {
             item.size === cartItem.size,
         )
       ) {
-        // I realized the items were always pushed as new despite having an existing item of the same Id.
-        // This specifies that if an item with the same productId and size already exists in the cart, the quantity updates instead of pushing a new item.
+        // Same product and size: increase the quantity instead of adding a duplicate line.
         const existingItem = cartItems.find(
           (item) =>
             item.productId === cartItem.productId &&
@@ -191,10 +178,9 @@ async function displayProduct() {
         );
         existingItem.quantity += cartItem.quantity;
       } else {
-        // Otherwise, add the new item to the cart
         cartItems.push(cartItem);
       }
-      // Convert the updated array to JSON text and save it under the "cartItems" key.
+
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
       showCartToast();
@@ -203,7 +189,7 @@ async function displayProduct() {
     /* ========================================
        RELATED PRODUCTS
        ======================================== */
-    // "You might also like": four other products of the same gender, which replaces the hardcoded Reviews section.
+    // "You might also like": four other products of the same gender.
     const relatedGrid = document.querySelector(".related-products-grid");
     const relatedProducts = products
       .filter((p) => p.id !== product.id && p.gender === product.gender)
@@ -247,7 +233,6 @@ async function displayProduct() {
     /* ========================================
        UPDATE CATEGORY BREADCRUMB
        ======================================== */
-    //Added breadcrumb change for male products. Adjusts the breadcrumb link and text if the product is for men.
     const categoryBreadcrumb = productContainer.querySelector(
       '.breadcrumbs a[href="../category/products-women.html"]',
     );

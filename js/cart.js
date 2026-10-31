@@ -199,7 +199,6 @@ async function displayCart() {
     cartTile.appendChild(cartMedia);
     cartTile.appendChild(cartInfo);
 
-    // Add tile to page
     cartList.appendChild(cartTile);
 
     if (product) {
@@ -237,18 +236,14 @@ async function displayCart() {
        CART ITEM CONTROLS
        ======================================== */
     removeButton.addEventListener("click", () => {
-      // find which cartItem this button belongs to
       const cartItemIndex = cartItems.indexOf(cartItem);
       if (cartItemIndex !== -1) {
         cartItems.splice(cartItemIndex, 1);
       }
-      // remove that item from cartItems
 
-      // save changed cartItems to localStorage
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       updateCartCount();
 
-      // remove this cartTile from the page
       cartTile.remove();
     });
 

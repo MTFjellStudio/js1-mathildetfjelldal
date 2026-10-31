@@ -140,7 +140,6 @@ async function displayCheckoutItems() {
     miniCartItem.appendChild(cartMedia);
     miniCartItem.appendChild(cartInfo);
 
-    // Add tile to page
     summaryItems.appendChild(miniCartItem);
 
     if (product) {

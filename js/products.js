@@ -8,7 +8,6 @@ import { createProductCard } from "./ui.js";
    DISPLAY CATEGORY PRODUCTS
    ======================================== */
 async function displayCategoryProducts() {
-  // Loading products BEFORE fetching them from the API
   const productStatus = document.querySelector(".product-status");
 
   /* ========================================
@@ -17,7 +16,7 @@ async function displayCategoryProducts() {
   const womenProductGrid = document.querySelector(".women-product-grid");
   const menProductGrid = document.querySelector(".men-product-grid");
 
-  let productGrid = null; //Easier to make it explicit that it starts at null so that I remember it's reason for being there.
+  let productGrid = null;
   let gender = null;
 
   if (womenProductGrid) {
@@ -39,7 +38,6 @@ async function displayCategoryProducts() {
      ======================================== */
   const products = await fetchProducts();
 
-  // Error check
   if (products.length === 0) {
     if (productStatus) {
       productStatus.textContent = "Unable to load products. Please try again.";
@@ -47,7 +45,6 @@ async function displayCategoryProducts() {
     return;
   }
 
-  // Clears the loading message once products are fetched successfully
   if (productStatus) {
     productStatus.textContent = "";
   }
@@ -58,7 +55,7 @@ async function displayCategoryProducts() {
 
   const categoryProducts = products.filter(isCorrectGender);
 
-  //Added so that filtering doesn't get mistaken for an error
+  // An empty category is reported separately from a failed fetch
   if (categoryProducts.length === 0) {
     if (productStatus) {
       productStatus.textContent = "No products found in this category.";
@@ -83,6 +80,7 @@ async function displayCategoryProducts() {
      IDENTIFY AND FILTER CATEGORY PRODUCTS
      ======================================== */
 
+  //Color filter
   const productColors = [];
 
   for (const product of categoryProducts) {
@@ -115,7 +113,6 @@ async function displayCategoryProducts() {
   }
 
   colorOptions.addEventListener("click", () => {
-    // When should something happen? Apply filters whenever a color checkbox is clicked
     applyFilters();
   });
 
@@ -128,7 +125,6 @@ async function displayCategoryProducts() {
       return matchesSelectedColor && matchesOnSale;
     });
 
-    // Clear the product grid and rebuild it with filtered products
     productGrid.innerHTML = "";
     for (const product of filteredProducts) {
       const card = createProductCard(product, "../");
@@ -136,16 +132,18 @@ async function displayCategoryProducts() {
     }
   }
 
-  // Sale true or false via type = checkbox
+  // On sale filter
   const onSaleCheckbox = document.querySelector('input[name="onSale"]');
   onSaleCheckbox.addEventListener("change", applyFilters);
 
-  // Clear All filters functionality
+  // Clear filters
+  const clearFiltersButton = document.querySelector(".filter-clear");
 
-  document.querySelector(".filter-clear").addEventListener("click", () => {
+  clearFiltersButton.addEventListener("click", () => {
     for (const input of document.querySelectorAll(".filter-menu input")) {
       input.checked = false;
     }
+    applyFilters();
   });
 }
 
