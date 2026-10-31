@@ -228,6 +228,11 @@ async function displayCheckoutItems() {
   payNowButton.addEventListener("click", (event) => {
     event.preventDefault();
 
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Add a product before proceeding.");
+      return;
+    }
+
     const requiredInputs = document.querySelectorAll(
       ".checkout-forms input[required]",
     );
