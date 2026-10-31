@@ -1000,6 +1000,7 @@ footer {
 .cart-list {
   display: flex;
   flex-direction: column;
+  gap: var(--space-md);
 }
 
 .continue-shopping {
@@ -1258,27 +1259,16 @@ input {
    ABOUT PAGE LAYOUT
    ======================================== */
 
-.about-us {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-3xl) var(--margin-page);
-}
-
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about-text {
-  gap: var(--space-md);
-}
-
 .about-image {
+  display: block;
   width: 100%;
   max-width: 400px;
-  border-radius: 0px;
   height: auto;
+  margin-bottom: var(--space-md);
+}
+
+.legal-section h3 {
+  margin: var(--space-lg) 0 var(--space-sm);
 }
 
 /* ========================================
