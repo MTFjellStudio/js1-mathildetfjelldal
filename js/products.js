@@ -122,7 +122,15 @@ async function displayCategoryProducts() {
       const matchesSelectedColor =
         checkedColors.length === 0 || checkedColors.includes(product.baseColor);
       const matchesOnSale = !onSaleCheckbox.checked || product.onSale;
-      return matchesSelectedColor && matchesOnSale;
+      const matchesFavorite = !favoriteCheckbox.checked || product.favorite;
+      const matchesUnder100 =
+        !under100Checkbox.checked || product.discountedPrice < 100;
+      return (
+        matchesSelectedColor &&
+        matchesOnSale &&
+        matchesFavorite &&
+        matchesUnder100
+      );
     });
 
     productGrid.innerHTML = "";
@@ -137,6 +145,40 @@ async function displayCategoryProducts() {
   // On sale filter
   const onSaleCheckbox = document.querySelector('input[name="onSale"]');
   onSaleCheckbox.addEventListener("change", applyFilters);
+
+  // Favorites filter
+  const favoriteCheckbox = document.querySelector('input[name="favorite"]');
+  favoriteCheckbox.addEventListener("change", applyFilters);
+
+  // Under 100 euro filter
+  const under100Checkbox = document.querySelector('input[name="under100"]');
+  under100Checkbox.addEventListener("change", applyFilters);
+
+  const params = new URLSearchParams(window.location.search);
+  let hasPresetFilter = false;
+
+  if (params.get("favorite") === "true") {
+    favoriteCheckbox.checked = true;
+    hasPresetFilter = true;
+  }
+
+  if (params.get("under100") === "true") {
+    under100Checkbox.checked = true;
+    hasPresetFilter = true;
+  }
+
+  // ?color=Red,Orange,Yellow checks every matching color that exists here
+  const presetColors = (params.get("color") ?? "").split(",");
+  for (const checkbox of document.querySelectorAll('input[name="color"]')) {
+    if (presetColors.includes(checkbox.value)) {
+      checkbox.checked = true;
+      hasPresetFilter = true;
+    }
+  }
+
+  if (hasPresetFilter) {
+    applyFilters();
+  }
 
   // Clear filters
   const clearFiltersButton = document.querySelector(".filter-clear");

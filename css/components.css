@@ -892,6 +892,15 @@
   box-sizing: border-box;
   line-height: 40px;
   font-size: var(--font-size-base);
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Hide native spinners; the custom -/+ buttons and typing still work */
+.quantity-selector input::-webkit-inner-spin-button,
+.quantity-selector input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* ========================================
