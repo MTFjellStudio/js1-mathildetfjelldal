@@ -35,6 +35,18 @@ async function displayCart() {
 
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) ?? [];
 
+  /* ========================================
+     CHECKOUT NAVIGATION
+     ======================================== */
+  const checkoutButton = document.querySelector(".go-to-checkout");
+
+  checkoutButton.addEventListener("click", (event) => {
+    if (cartItems.length === 0) {
+      event.preventDefault();
+      alert("Your cart is empty. Add a product before going to checkout.");
+    }
+  });
+
   if (cartItems.length === 0) {
     if (productStatus) {
       productStatus.textContent =
@@ -268,17 +280,6 @@ async function displayCart() {
     });
   }
 
-  /* ========================================
-     CHECKOUT NAVIGATION
-     ======================================== */
-  const checkoutButton = document.querySelector(".go-to-checkout");
-
-  checkoutButton.addEventListener("click", (event) => {
-    if (cartItems.length === 0) {
-      event.preventDefault();
-      alert("Your cart is empty. Add a product before going to checkout.");
-    }
-  });
 }
 
 /* ========================================

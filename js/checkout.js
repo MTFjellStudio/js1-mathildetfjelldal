@@ -238,7 +238,14 @@ async function displayCheckoutItems() {
     );
 
     for (const input of requiredInputs) {
-      if (!input.reportValidity()) {
+      if (!input.checkValidity()) {
+        // Fields inside a closed <details> can't show validation messages, so the code needs to open the relevant <details> element first
+        const step = input.closest("details");
+        if (step) {
+          step.open = true;
+        }
+        input.focus();
+        input.reportValidity();
         return;
       }
     }

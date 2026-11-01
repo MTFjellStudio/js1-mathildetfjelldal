@@ -130,6 +130,8 @@ async function displayCategoryProducts() {
       const card = createProductCard(product, "../");
       productGrid.appendChild(card);
     }
+
+    productCount.textContent = `${filteredProducts.length} items`;
   }
 
   // On sale filter

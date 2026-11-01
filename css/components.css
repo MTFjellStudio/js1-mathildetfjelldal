@@ -846,6 +846,11 @@
   background-color: var(--color-secondary);
 }
 
+.size-box input[type="radio"]:focus-visible + label {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* ========================================
    QUANTITY & ACTIONS
    ======================================== */
